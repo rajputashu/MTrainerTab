@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.umbrellareport.UmbrellaReportViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/appbar1"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTakeAttendance"
+                android:layout_width="match_parent"
+                app:title=" "
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="snap" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:text="SPI Report"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveTask"
+            android:onClick="@{vm::savespiUmbrella}"
+            style="@style/RedButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:text="SUBMIT" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbar1"
+            android:layout_above="@+id/report_count"
+            android:layout_alignParentTop="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?actionBarSize"
+                android:layout_below="@+id/appbar1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.staticBranchName.toString().isEmpty || vm.staticSiteName.toString().isEmpty ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/relative2">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_branch_name"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        branchEntries="@{vm.branchList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_branch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@{`Branch - ` +  vm.staticBranchName}"
+                    android:visibility="@{vm.staticBranchName.toString().isEmpty ? View.GONE : View.VISIBLE}"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_14ssp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.staticBranchName.toString().isEmpty || vm.staticSiteName.toString().isEmpty ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/relative3">
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        app:hintText="Select Site"
+                        android:id="@+id/sp_unit_name3"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        siteEntries="@{vm.siteList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_site"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="@{`Site - ` + vm.staticSiteName}"
+                    android:visibility="@{vm.staticSiteName.toString().isEmpty ? View.GONE : View.VISIBLE}"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_14ssp" />
+<!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_trainee_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Umbrella Count "
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_14ssp" />
+                    <LinearLayout
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:layout_width="0px"
+                        android:layout_height="0px"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_trainee_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_60sdp"
+                        android:inputType="number"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorTextGrey"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:gravity="start"
+                        android:layout_toEndOf="@id/tv_trainee_number"
+                        android:textSize="@dimen/_12ssp" />
+
+                </RelativeLayout>
+-->
+                <View
+                    android:id="@+id/main_view_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_4sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    imageHandler="@{vm.picasso}"
+                    umbrellaItemListener="@{vm.imageCaptureListener}"
+                    umbrellaAdapter="@{vm.umbrellaReportAdapter}"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/others_btn"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/UmbrellaButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_34sdp"
+                    android:onClick="@{vm::openAddPostDialog}"
+                    android:text="Others" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+<!--
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/report_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:padding="@dimen/_4sdp"
+            android:background="@color/colorLightGrey"
+            android:layout_above="@id/btnSaveTask"
+            android:layout_centerHorizontal="true"
+            android:text="@{vm.mntCount}"
+            android:visibility="@{vm.mntCount.toString().isEmpty ? View.INVISIBLE : View.VISIBLE}"
+            android:textColor="@color/textColorBlackBold"
+            android:textSize="@dimen/_14ssp" />
+-->
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{vm.isLoading}" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{vm.isLoadingint}" />
+
+    </RelativeLayout>
+</layout>

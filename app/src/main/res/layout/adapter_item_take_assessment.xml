@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.sisindia.ai.mtrainer.android.utils.StringUtils"/>
+        <variable
+            name="assessmentItem"
+            type="com.sisindia.ai.mtrainer.android.db.entities.AttendanceEntity" />
+        <variable
+            name="scoreMetric"
+            type="float" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@color/colorWhite"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_0sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:gravity="start"
+                android:layout_gravity="center_vertical"
+                android:text="@{assessmentItem.employeeName + `  (` + (assessmentItem.employeeId == -1 ? StringUtils.getEmployeeCode(assessmentItem.empCode) : assessmentItem.empCode) + `)`}"
+                android:textColor="@color/textColorBlackBold"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_0sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:gravity="start"
+                android:text="@{assessmentItem.score == -1 ? `NA` : String.valueOf(assessmentItem.score)}"
+                android:layout_gravity="center_vertical"
+                android:textColor="@{assessmentItem.score >= scoreMetric || assessmentItem.score &lt; 0? @color/textColorBlackBold : @color/red}"/>
+            <RadioButton
+                android:id="@+id/assement_radio_btn"
+                android:clickable="false"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:buttonTint="@color/radio_button_selected_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

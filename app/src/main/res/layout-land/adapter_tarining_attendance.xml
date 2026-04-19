@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.sisindia.ai.mtrainer.android.utils.StringUtils"/>
+        <variable
+            name="adapteritem"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingAttendanceResponse.AttendanceResponse" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/emp_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!--        android:onClick="@{(v) -> viewModel.onProfileImageClicked()}"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/empName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:text="@{adapteritem.employeeName + `  (` + (adapteritem.rotaId == -1 ? adapteritem.employeeCode :  StringUtils.getEmployeeCode(adapteritem.employeeCode)) + `)`}"
+                android:textAlignment="textStart"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp" />
+
+            <RadioButton
+                android:id="@+id/emp_radio_btn"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:buttonTint="@color/radio_button_selected_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

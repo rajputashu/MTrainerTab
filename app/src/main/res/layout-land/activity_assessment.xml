@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.takeassessment.AssesmentQuestionViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/tbStartTraining"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:title=" "
+                    app:layout_scrollFlags="snap" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold"
+                        android:text="@string/assessment"
+                        android:layout_gravity="center"
+                        android:id="@+id/toolbar_title" />
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <com.droidcommons.views.roundedimageview.RoundedImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_5sdp"
+                        app:srcCompat="@drawable/ic_client_name"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:gravity="start|center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@={vm.participentName}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_7ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="3sp"
+                            android:text='@{String.format("Participent - %s/%s",vm.currentparticipentNumber,vm.totalparticipentNumber)}'
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/_6ssp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <com.droidcommons.views.roundedimageview.RoundedImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/ic_question" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:gravity="start|center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@={vm.question}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_7ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="3sp"
+                            android:text="Question"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/_6ssp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:id="@+id/camera_lin_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"/>
+                    <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/video_player_view"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:id="@+id/video_thumb"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <ImageButton
+                        android:id="@+id/camera_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_switch_camera" />
+                    <LinearLayout
+                        android:id="@+id/assessment_action_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@{vm.timeTracker > 9 ? `00:00:` + String.valueOf(vm.timeTracker) : `00:00:0` + String.valueOf(vm.timeTracker)}"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:chipBackgroundColor="#CC000000" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:background="#4D000000"
+                            android:orientation="horizontal">
+                            <ImageButton
+                                android:id="@+id/play_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_36sdp"
+                                android:alpha="0.3"
+                                android:background="@drawable/ic_video_play"/>
+
+                            <ImageButton
+                                android:id="@+id/recode_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_5sdp"
+                                android:background="@drawable/ic_play_video"/>
+                            <ImageButton
+                                android:layout_marginStart="@dimen/_36sdp"
+                                android:id="@+id/delete_btn"
+                                android:alpha="0.3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_5sdp"
+                                android:background="@drawable/ic_video_delete" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+                <TextView
+                    android:id="@+id/done_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/button_red"
+                    android:gravity="center"
+                    android:text="NEXT PARTICIPANT"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_7ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{vm.isLoading}" />
+    </FrameLayout>
+</layout>

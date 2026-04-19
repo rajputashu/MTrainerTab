@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vmtabmodel"
+            type="com.sisindia.ai.mtrainer.android.features.myunits.MyUnitstabViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/_10sdp"
+            android:padding="@dimen/_4sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalSipMountedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SPI Mounted/Total Unit"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/totalOYCLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalSipMounted}"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/totalSipMountedLabel"
+                app:layout_constraintStart_toStartOf="@id/totalSipMountedLabel"
+                app:layout_constraintEnd_toEndOf="@id/totalSipMountedLabel"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalOYCLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total OYC Unit"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/totalCSATLabel"
+                app:layout_constraintStart_toEndOf="@id/totalSipMountedLabel"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalOYCSite}"
+                android:textColor="@color/DarkBlue"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/totalOYCLabel"
+                app:layout_constraintStart_toStartOf="@id/totalOYCLabel"
+                app:layout_constraintEnd_toEndOf="@id/totalOYCLabel"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalCSATLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total CSAT Unit"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/totalOtherSiteLabel"
+                app:layout_constraintStart_toEndOf="@id/totalOYCLabel"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalCSATSite}"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/totalCSATLabel"
+                app:layout_constraintStart_toStartOf="@id/totalCSATLabel"
+                app:layout_constraintEnd_toEndOf="@id/totalCSATLabel"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalOtherSiteLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Other Unit"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/totalCSATLabel"
+                app:layout_constraintEnd_toStartOf="@id/totalSiteLabel"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/switch_color_on"
+                android:textStyle="bold"
+                android:text="@{vmtabmodel.totalOtherSite}"
+                app:layout_constraintTop_toBottomOf="@id/totalOtherSiteLabel"
+                app:layout_constraintStart_toStartOf="@id/totalOtherSiteLabel"
+                app:layout_constraintEnd_toEndOf="@id/totalOtherSiteLabel"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalSiteLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Unit"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/totalOtherSiteLabel"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalSiteCount}"
+                android:textColor="@color/dark_green"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/totalSiteLabel"
+                app:layout_constraintStart_toStartOf="@id/totalSiteLabel"
+                app:layout_constraintEnd_toEndOf="@id/totalSiteLabel"
+                android:textSize="@dimen/_10ssp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/relative37"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:background="@drawable/rectangle_border_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:id="@+id/sp_branchname"
+                    branchtabEntriesUnits="@{vmtabmodel.branchList}"
+                    setSpinnerItemSelectorMyUnitsTab="@{vmtabmodel.branchViewListeners}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/relative73"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/rectangle_border_grey"
+                app:layout_constraintEnd_toStartOf="@id/siteFilterSpinnerLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/search"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8ssp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/siteFilterSpinnerLayout"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:gravity="center_vertical"
+                android:background="@drawable/rectangle_border_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:id="@+id/siteFilterSpinner"
+                    app:unitStatusList="@{vmtabmodel.unitStatusList}"
+                    siteStatusListener="@{vmtabmodel.siteStatusListener}"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_arrow_down"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalumbrellareceived}"
+                android:textAlignment="center"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_8ssp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalumbrellainstalled}"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_8ssp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalumbrelladamagedcount}"
+                android:textAlignment="center"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_8ssp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vmtabmodel.totalumbrellastack}"
+                android:textAlignment="center"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_8ssp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:background="@drawable/border_top_round_crop"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:padding="@dimen/_2sdp"
+                android:text="S.No."
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/_2sdp"
+                android:text="UnitCode"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.3"
+                android:padding="@dimen/_2sdp"
+                android:text="UnitName"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:backgroundTint="@color/white"
+                android:padding="@dimen/_2sdp"
+                android:text="SPI"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:padding="@dimen/_2sdp"
+                android:text="SPICount"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/_2sdp"
+                android:text="UnitType"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:padding="@dimen/_2sdp"
+                android:text="SectorName"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/_2sdp"
+                android:text="IsDisbanded"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:padding="@dimen/_2sdp"
+                android:text="Edit"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Calendar_Rota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:myUnitsViewListener="@{vmtabmodel.unitsiteViewListeners}"
+            app:setMyUnitsRecyclerAdapter="@{vmtabmodel.myUnitsAdapter}" />
+
+    </LinearLayout>
+</layout>

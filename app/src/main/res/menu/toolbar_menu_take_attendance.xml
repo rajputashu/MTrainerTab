@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+   <!-- <item
+        android:id="@+id/add_client_employee"
+        android:icon="@drawable/ic_person_add"
+        android:orderInCategory="9"
+        android:title="Add Client Employee"
+        app:showAsAction="always" />-->
+    <item
+        android:id="@+id/add_client_employee"
+        android:orderInCategory="9"
+        android:title="Add Client Employee"
+        app:actionLayout="@layout/action_layout"
+        android:icon="@drawable/ic_person_add"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_add_employee"
+        android:icon="@drawable/ic_add_black"
+        android:orderInCategory="9"
+        android:title="Add Employee"
+        app:showAsAction="always" />
+
+
+
+</menu>

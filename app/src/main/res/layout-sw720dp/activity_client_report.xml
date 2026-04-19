@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.clientreport.ClientReportViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTakeAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="snap"
+                app:title=" ">
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Client Report"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            <include
+                android:id="@+id/includeTimeSpent"
+                layout="@layout/include_layout_time_spent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_alignParentTop="true" />
+            <Switch
+                android:id="@+id/session_id"
+                android:layout_below="@+id/includeTimeSpent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                toggleListener="@{vm.toggleListener}"
+                android:text="@{vm.isMultipleSession ? `Multiple Session` : `Single Session`}"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/session_id"
+                android:layout_marginTop="-3dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="#DCDCDC"
+                    android:orientation="horizontal"
+                    android:weightSum="@{vm.numberOfClientHeader.equals(`To`) ? 2 : 1}">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:text="@{vm.numberOfClientHeader}"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/totalCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:layout_weight=".8"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+<!--                android:visibility="@{vm.numberOfClientHeader.equals(`To`) ? View.VISIBLE : View.GONE}"-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/flButtonTraining"
+                    android:visibility="gone"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lin_tomails"
+                    android:orientation="vertical"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add more"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:layout_margin="15dp"
+                    android:id="@+id/add" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="#DCDCDC"
+                    android:text="CC"
+                    android:padding="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="15dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lin_ccmails"
+                    android:orientation="vertical"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add more"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:layout_margin="15dp"
+                    android:id="@+id/add_cc" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    app:startIconDrawable="@drawable/ic_cc_notification"
+                    android:id="@+id/filledTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterTextColor="@color/black"
+                    android:visibility="gone"
+                    app:boxStrokeColor="@color/black"
+                    app:helperTextTextColor="@color/black"
+                    app:helperText=""
+                    android:paddingBottom="@dimen/_8sdp"
+                    app:helperTextTextAppearance="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textCursorDrawable="@null"
+                        ccTextListner="@{vm.onCcTextChangeListener}"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--<EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_2sdp"
+                    ccTextListner="@{vm.onCcTextChangeListener}"
+                    android:hint="CC"/>-->
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/flButtonTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:alpha="0.3"
+            android:layout_margin="@dimen/_16sdp"
+            app:backgroundTint="@color/red"
+            app:layout_anchorGravity="bottom|right|end"
+            app:srcCompat="@drawable/ic_arrow_forward"
+            app:tint="@color/colorWhite" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

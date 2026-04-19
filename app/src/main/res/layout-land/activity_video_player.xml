@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/activity_main">
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/webview" />
+
+        <RelativeLayout
+            android:id="@+id/nonVideoLayout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.sisindia.ai.mtrainer.android.features.server.VideoEnabledWebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+        <!-- View where the video will be shown when video goes fullscreen -->
+        <RelativeLayout
+            android:id="@+id/videoLayout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+
+        </RelativeLayout>
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/videoView"/>
+
+    </RelativeLayout>
+
+</layout>

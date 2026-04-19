@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingEnd="@dimen/_24sdp">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:paddingBottom="@dimen/_24sdp">
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="16dp"
+                android:text="Edit Unit"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_selCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Unit Code"
+                app:layout_constraintEnd_toStartOf="@+id/vT_dp_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_selsubCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Unit Name"
+                app:layout_constraintStart_toStartOf="@+id/rt1_spncatstatus"
+                app:layout_constraintTop_toBottomOf="@+id/rt1_spncatstatus" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_prodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="SPI"
+                app:layout_constraintStart_toStartOf="@+id/rt1_spnsubcatstatus"
+                app:layout_constraintTop_toBottomOf="@+id/rt1_spnsubcatstatus" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_dc_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/red"
+                android:paddingLeft="@dimen/_22sdp"
+                android:paddingRight="@dimen/_22sdp"
+                android:text="Submit"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/sp_disbandedtype"
+                app:layout_constraintTop_toBottomOf="@+id/sp_disbandedtype" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_spitobemounted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="SPI To Be Mounted"
+                app:layout_constraintStart_toStartOf="@+id/rt1_spnproductstatus"
+                app:layout_constraintTop_toBottomOf="@+id/rt1_spnproductstatus" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_spitobemounted"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_spitobemounted"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_spitobemounted" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_spimounted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="SPI Mounted"
+                app:layout_constraintStart_toStartOf="@+id/et_spitobemounted"
+                app:layout_constraintTop_toBottomOf="@+id/et_spitobemounted" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_spimounted"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_spimounted"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_spimounted" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_totalspicovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Total SPI Post Covered"
+                app:layout_constraintStart_toStartOf="@+id/et_spimounted"
+                app:layout_constraintTop_toBottomOf="@+id/et_spimounted" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_totalspicovered"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_totalspicovered"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_totalspicovered" />
+
+
+          <!--  
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrella"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella"
+                app:layout_constraintStart_toStartOf="@+id/et_totalspicovered"
+                app:layout_constraintTop_toBottomOf="@+id/et_totalspicovered" />-->
+
+
+            <!--<RelativeLayout
+                android:id="@+id/rt1_umbrellastatus"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrella"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrella">
+
+                <View
+                    android:id="@+id/view98"
+                    android:layout_width="338dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vs_umbrella"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+            </RelativeLayout>-->
+
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_productdescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella To Be Installed"
+                app:layout_constraintStart_toStartOf="@+id/rt1_umbrellastatus"
+                app:layout_constraintTop_toBottomOf="@+id/rt1_umbrellastatus" />-->
+
+
+            <!--<androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_umbrella"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_productdescription"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_productdescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrellainstalled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella Installed"
+                app:layout_constraintStart_toStartOf="@+id/et_umbrella"
+                app:layout_constraintTop_toBottomOf="@+id/et_umbrella" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_umbrellainstalled"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrellainstalled"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrellainstalled" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrellapostcovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella Post Covered"
+                app:layout_constraintStart_toStartOf="@+id/et_umbrellainstalled"
+                app:layout_constraintTop_toBottomOf="@+id/et_umbrellainstalled" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_umbrellapostcovered"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrellapostcovered"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrellapostcovered" />
+-->
+           <!-- <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrellareceived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Umbrella Received"
+                app:layout_constraintStart_toStartOf="@+id/et_umbrellapostcovered"
+                app:layout_constraintTop_toBottomOf="@+id/et_umbrellapostcovered" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_umbrellareceived"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrellareceived"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrellareceived" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrelladamaged"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella Damaged"
+                app:layout_constraintStart_toStartOf="@+id/et_umbrellareceived"
+                app:layout_constraintTop_toBottomOf="@+id/et_umbrellareceived" />
+
+-->
+         <!--   <RelativeLayout
+                android:id="@+id/sp_umbrelladamaged"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrelladamaged"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrelladamaged">
+
+                <View
+                    android:id="@+id/view11_umbrelladamaged"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vS_dp_umbrelladamaged"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_umbrellatobedamaged"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Umbrella To Be Damaged"
+                app:layout_constraintStart_toStartOf="@+id/sp_umbrelladamaged"
+                app:layout_constraintTop_toBottomOf="@+id/sp_umbrelladamaged" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_umbrellatobedamaged"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/storke_bg_white"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_umbrellatobedamaged"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_umbrellatobedamaged" />
+-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_unittypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="UnitType"
+                app:layout_constraintStart_toStartOf="@+id/et_totalspicovered"
+                app:layout_constraintTop_toBottomOf="@+id/et_totalspicovered" />
+
+
+            <RelativeLayout
+                android:id="@+id/sp_unittype"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_unittypetext"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_unittypetext">
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vS_dp_unittype"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_sectypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sector Type"
+                app:layout_constraintStart_toStartOf="@+id/sp_unittype"
+                app:layout_constraintTop_toBottomOf="@+id/sp_unittype" />
+
+            <RelativeLayout
+                android:id="@+id/sp_sectortype"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_sectypetext"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_sectypetext">
+
+                <View
+                    android:id="@+id/sec_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vS_dp_sectype"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+
+            </RelativeLayout>
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vT_dp_disbandedtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="IsDisbanded"
+                app:layout_constraintStart_toStartOf="@+id/sp_sectortype"
+                app:layout_constraintTop_toBottomOf="@+id/sp_sectortype" />
+
+            <RelativeLayout
+                android:id="@+id/sp_disbandedtype"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_disbandedtext"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_disbandedtext">
+
+                <View
+                    android:id="@+id/disbanded_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vS_dp_disbtype"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rt1_spncatstatus"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_selCategory"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_selCategory">
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_unitcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="start|center"
+                    android:paddingLeft="5dp" />
+
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rt1_spnsubcatstatus"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_selsubCategory"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_selsubCategory">
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_unitname"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="start|center"
+                    android:paddingStart="5dp"
+
+                    android:textAlignment="textStart" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rt1_spnproductstatus"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/vT_dp_prodName"
+                app:layout_constraintTop_toBottomOf="@+id/vT_dp_prodName">
+
+                <View
+                    android:id="@+id/view97"
+                    android:layout_width="338dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/storke_bg_white" />
+
+                <Spinner
+                    android:id="@+id/vs_spi"
+                    style="@style/SpinnerTheme1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:theme="@style/MatchSpinnerTheme" />
+
+            </RelativeLayout>
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

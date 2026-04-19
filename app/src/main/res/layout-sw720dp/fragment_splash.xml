@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.splash.SplashViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d2212f">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_splash_bg_buidlings" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIopsTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_42sdp"
+            android:scaleType="center"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_gb_mtrainer_transperent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivIopsTop"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/icon_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_above="@id/rlMobileNumberLayout"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5ssp"
+                    android:layout_marginLeft="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:scaleType="fitEnd"
+                    app:srcCompat="@drawable/ic_mtrainer_white" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_21sdp"
+                    android:layout_margin="@dimen/_5sdp"
+
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:background="#d6dce6" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_margin="@dimen/_5ssp"
+                    android:scaleType="fitStart"
+                    app:srcCompat="@drawable/company_logo" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_24sdp"
+            android:scaleType="center"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_sis_logo_splash" />
+
+
+    </RelativeLayout>
+</layout>

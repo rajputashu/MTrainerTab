@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.ClientNAViewModel" />
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_top_corner">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUserLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/colorWhite">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_130sdp"
+                    android:layout_marginRight="@dimen/_130sdp"
+                    android:background="@color/colorTextGrey"
+                    android:gravity="center" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:backgroundTint="@color/Grey"
+                    android:background="@drawable/ic_round_circle"
+                    android:padding="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_clear"
+                    android:id="@+id/exit_client_na"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_14sdp"
+                    android:text="Reason for 'Not Meeting Client'"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:setClientNaRecyclerAdapter="@{vm.clientNARecylerAdapter}"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:fabSize="normal"
+                    app:tint="@color/colorWhite"
+                    app:srcCompat="@drawable/ic_arrow_forward"
+                    android:backgroundTint="@color/red"
+                    android:id="@+id/client_na_fab"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

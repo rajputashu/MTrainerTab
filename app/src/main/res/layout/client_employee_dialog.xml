@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.attendancemodule.TrainingAttendanceViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="Add Client Employee"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:backgroundTint="@color/Grey"
+                    android:background="@drawable/ic_round_circle"
+                    android:padding="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_clear"
+                    android:id="@+id/close_btn"/>
+                <EditText
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:id="@+id/et_employeeId"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="?actionBarSize" />
+
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:id="@+id/btn_add_client_emp"
+                    app:backgroundTint="@color/red"
+                    android:layout_gravity="bottom|end"
+                    app:tint="@color/colorWhite"
+                    android:text="add"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:src="@drawable/ic_arrow_white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{vm.addEmpLoading ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

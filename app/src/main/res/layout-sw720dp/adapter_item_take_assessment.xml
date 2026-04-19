@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.sisindia.ai.mtrainer.android.utils.StringUtils" />
+
+        <variable
+            name="assessmentItem"
+            type="com.sisindia.ai.mtrainer.android.db.entities.AttendanceEntity" />
+
+        <!--<variable
+            name="scoreMetric"
+            type="float" />-->
+
+    </data>
+
+    <!--<androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                app:attendanceMO="@{assessmentItem}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_6ssp"
+                android:paddingStart="@dimen/_6sdp"
+                android:layout_gravity="center" />
+
+<!--            android:text="@{assessmentItem.employeeName==null ? assessmentItem.empName : assessmentItem.employeeName + `(` + assessmentItem.empCode +`)`}"-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@{@string/string_topics_score_value(assessmentItem.totalAccessedTopic, assessmentItem.totalTopicAssigned)}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@{@string/string_assessment_score_value(assessmentItem.totalAttemptedAssessment, assessmentItem.totalAssessmentAssigned)}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@{@string/string_question_score_value(assessmentItem.totalQuestionAttempted, assessmentItem.totalQuestionCount)}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@{@string/string_score_obtained_value(assessmentItem.finalScore, assessmentItem.totalMarks)}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp"/>
+
+           <!-- <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@{``+assessmentItem.finalScore}"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_7ssp" />-->
+
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_0sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@{assessmentItem.score == -1 ? `NA` : String.valueOf(assessmentItem.score)}"
+                android:textColor="@{assessmentItem.score >= scoreMetric || assessmentItem.score &lt; 0? @color/textColorBlackBold : @color/red}"
+                android:textSize="@dimen/_7ssp" />-->
+
+            <RadioButton
+                android:id="@+id/assement_radio_btn"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:checked="true"
+                android:buttonTint="@color/radio_button_selected_color"
+                android:clickable="false"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+<!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+</layout>

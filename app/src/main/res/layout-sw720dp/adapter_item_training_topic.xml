@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.sisindia.ai.mtrainer.android.models.previous.DetailsItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.droidcommons.views.roundedimageview.RoundedImageView
+                android:id="@+id/ivTopicThumbnail"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:scaleType="fitXY"
+                app:riv_border_color="@color/green"
+                app:riv_border_width="@dimen/_2sdp"
+                android:src="@drawable/ic_mtrainer_white"
+                app:riv_oval="true" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@{String.valueOf(item.attendence)}"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                app:chipBackgroundColor="@color/colorBlue"
+                app:chipIcon="@drawable/ic_group_topic"
+                app:iconEndPadding="-8dp"
+                app:iconStartPadding="2dp"
+                app:chipIconTint="@color/colorWhite"
+                app:chipCornerRadius="@dimen/_4sdp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{item.post}"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+</layout>

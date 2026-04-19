@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.starttraining.StartTrainingViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbStartTraining"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:title=" "
+                app:layout_scrollFlags="snap">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:text="Start Training"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:id="@+id/videosIcon"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_video"/>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroudGray2"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <include
+                android:id="@+id/includeTimeSpent"
+                layout="@layout/include_layout_time_spent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_alignParentTop="true"
+                />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llInstakart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/includeTimeSpent"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:layout_weight="0.3"
+                        android:text="@{vm.unitName}"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_9ssp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/training_type"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:layout_weight="1.7"
+                        android:drawablePadding="@dimen/_4sdp"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:text="PLANNED TRIANING TIME"
+                        android:textColor="@color/colorTextGrey"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.plannedTime}"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:background="#e0e7ee" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedTrainingAction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llInstakart"
+                android:layout_marginTop="0dp">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llTrainingAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llInstakart"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_14sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/training_actions"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            app:adapterFilter="@{vm.companyID}"
+                            app:navigationRecyclerAdapter="@{vm.navigationRecyclerAdapter}"
+                            app:navigationViewListeners="@{vm.viewListeners}" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/feedback_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_12ssp"
+                            android:layout_marginTop="@dimen/_12ssp"
+                            android:background="@drawable/less_rounded_border"
+                            android:orientation="horizontal"
+                            android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                            android:weightSum="1.5">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_7sdp"
+                                android:layout_weight="0.5"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/client_feedback"
+                                    android:textColor="@color/textColorBlackBold"
+                                    android:textSize="@dimen/_8ssp"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Start a training to obtain feedback"
+                                    android:textColor="@color/colorTextGrey"
+                                    android:textSize="@dimen/_7ssp" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_gravity="center"
+                                android:layout_weight=".6"
+                                android:drawablePadding="@dimen/_4sdp"
+                                app:srcCompat="@drawable/ic_right_arrow" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <!--this for after getting feed back we need add-->
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/after_feedback_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_16sdp"
+                            android:background="@drawable/less_rounded_border"
+                            android:orientation="horizontal"
+                            android:weightSum="1.5"
+                            android:visibility="gone">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginBottom="@dimen/_7sdp"
+                                android:layout_weight="0.3"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/client_feedback"
+                                    android:textColor="@color/textColorBlackBold"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/after_feedback_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Feedback obtained"
+                                    android:textSize="@dimen/_9ssp" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="@dimen/_75sdp"
+                                android:layout_weight="1"
+                                android:drawableLeft="@drawable/ic_orange_start1"
+                                android:drawableRight="@drawable/ic_completed1"
+                                android:drawablePadding="@dimen/_4sdp"
+                                android:gravity="center"
+                                android:text="4/5"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_10ssp"
+                                android:id="@+id/after_feedback_rating"/>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="600dp"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp">
+
+                        <fragment
+                            android:id="@+id/map"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp" />
+
+                        <Button
+                            android:id="@+id/btnRefresh"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:text="Refresh"
+                            android:textSize="11sp"
+                            app:rippleColor="@color/white"
+                            app:backgroundTint="@color/red"
+                            android:layout_margin="20dp"
+                            android:textColor="@color/white"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llTrainingCoverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/backgroudGray2"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="120dp"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:layout_marginBottom="@dimen/_6sdp"
+                                app:cardCornerRadius="@dimen/_8sdp">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? 2 : 3}">
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:weightSum="2">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/_4sdp"
+                                            android:layout_weight="1"
+                                            android:layout_gravity="center_horizontal"
+                                            android:textSize="@dimen/_8ssp"
+                                            android:id="@+id/attendence_summary"
+                                            android:text="@{vm.selectedEmployee + `/` + vm.totalEmployee}"
+                                            android:textColor="@color/textColorBlackBold"
+                                            android:textStyle="bold" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:layout_gravity="center_horizontal"
+                                            android:text="Attendance"
+                                            android:textColor="@color/colorTextGrey"
+                                            android:textSize="@dimen/_6ssp" />
+
+
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                    <View
+                                        android:layout_width="@dimen/_1sdp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/colorLightGrey" />
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_12sdp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        android:visibility="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? View.GONE : View.VISIBLE}">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="@dimen/_8ssp"
+                                            android:layout_marginBottom="@dimen/_4sdp"
+                                            android:id="@+id/post_summary"
+                                            android:layout_weight="1"
+                                            android:text="@{vm.selectedPost + `/` + vm.totalPost}"
+                                            android:layout_gravity="center_horizontal"
+                                            android:textColor="@color/textColorBlackBold"
+                                            android:textStyle="bold" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:layout_gravity="center_horizontal"
+                                            android:text="Posts"
+                                            android:textColor="@color/colorTextGrey"
+                                            android:textSize="@dimen/_6ssp" />
+
+
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                    <View
+                                        android:layout_width="@dimen/_1sdp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/colorLightGrey"
+                                        android:visibility="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? View.GONE : View.VISIBLE}"/>
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_12sdp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:weightSum="2">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/_4sdp"
+                                            android:layout_weight="1"
+                                            android:layout_gravity="center_horizontal"
+                                            android:textSize="@dimen/_8ssp"
+                                            android:id="@+id/topic_summary"
+                                            android:text="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`) ? String.valueOf(vm.selectedTopic+vm.selectedAdhocTopic): String.valueOf(vm.selectedTopic+vm.selectedAdhocTopic) + `/` + vm.totalTopic}"
+                                            android:textColor="@color/textColorBlackBold"
+                                            android:textStyle="bold" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/_6sdp"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:text="Topics"
+                                            android:textColor="@color/colorTextGrey"
+                                            android:textSize="@dimen/_6ssp" />
+
+
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_131sdp"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                app:cardCornerRadius="@dimen/_10sdp"
+                                android:visibility="gone">
+
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_12sdp"
+                                    android:layout_marginTop="@dimen/_12sdp"
+                                    android:text="Training Coverage - 06"
+                                    android:textColor="@color/textColorBlackBold"
+                                    android:textSize="@dimen/_7ssp"
+                                    android:textStyle="bold" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_marginTop="@dimen/_45sdp"
+                                    android:layout_marginStart="@dimen/_16sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    card_view:cardCornerRadius="25dp"
+                                    card_view:cardPreventCornerOverlap="false">
+
+                                    <com.droidcommons.views.roundedimageview.RoundedImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:src="@drawable/ic_mtrainer_white"
+                                        android:scaleType="centerCrop"
+                                        app:riv_corner_radius="@dimen/_8sdp" />
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="bottom"
+            android:background="@color/red"
+            android:id="@+id/training_done_btn"
+            android:onClick="@{vm::onClickSubmitReport}"
+            android:text="COMPLETE TRAINING"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            />
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{vm.isLoading}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

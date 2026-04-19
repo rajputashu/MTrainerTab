@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aandroid="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.choosetopics.ChooseTopicsViewModel" />
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbStartTraining"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:title=" "
+                app:layout_scrollFlags="snap" >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_gravity="center"
+                    android:text="Choose Topics Trained"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:id="@+id/llTrainedTopic"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:background="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/_18sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:textAlignment="textStart"
+                        android:text="Topics Trained"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/selected_topic_count"
+                        android:text="@{`Total : ` + String.valueOf(vm.topicCount+vm.adhocCount)}"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+              <!--  <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedTrainingAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="0dp">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">-->
+
+                <!--<androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="@dimen/_100sdp"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setChoosetopicsRecyclerAdapter="@{vm.rotatopicsAdapter}" />
+                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:setAdhocTopicRecyclerAdapter="@{vm.adhoctopicsAdapter}"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:setChoosetopicsRecyclerAdapter="@{vm.rotatopicsAdapter}"/>
+
+            </LinearLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:id="@+id/llAddAdhoTopic"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Adhoc Topic"
+                        android:minHeight="@dimen/_18sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:textColor="#181c2d"/>
+                    <androidx.appcompat.widget.SearchView
+                        rxListener="@{vm.stringObservable}"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_weight="0.5"
+                        android:layout_height="42dp"
+                        app:iconifiedByDefault="false"
+                        app:queryHint="Search Topic"/>
+
+
+                   <!-- <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginRight="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/search_border"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:hint="search topics name"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:visibility="gone"/>-->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="#e0e7ee"
+                        android:visibility="gone"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:setChoosetopicsRecyclerAdapter="@{vm.choosetopicsAdapter}">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_8sdp"
+            app:fabSize="normal"
+            app:tint="@color/colorWhite"
+            app:srcCompat="@drawable/ic_arrow_forward"
+            android:backgroundTint="@color/red"
+            android:id="@+id/topic_fab"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:fabSize="normal"
+            app:tint="@color/colorWhite"
+            app:srcCompat="@drawable/ic_add_white"
+            android:backgroundTint="@color/red"
+            android:id="@+id/btn_adhoc_topic"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

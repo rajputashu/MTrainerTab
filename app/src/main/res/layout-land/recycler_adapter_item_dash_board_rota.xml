@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.rota.DashBoardRotaViewModel" />
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingCalendarResponse.TrainingCalendar" />
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:background="@color/colorLightGrey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rota_chip_header"
+                android:layout_marginTop="-10dp"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/textColorBlackBold"
+                app:chipBackgroundColor="@color/lightYellow" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_4sdp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{adapterItem.unitName}"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_7ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:textColor="#75859d"
+                                android:text="@{adapterItem.unitCode}"
+                                android:textSize="@dimen/_5ssp" />
+                            <!--   android:text="KNR UNT008254"-->
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_weight=".2"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:id="@+id/training_type_image" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:id="@+id/pendingImage" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/pending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|end"
+                                android:drawablePadding="@dimen/_6sdp"
+                                android:text="Completed"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_6sdp" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Address"
+                            android:textColor="#75859d"
+                            android:textAllCaps="true"
+                            android:textSize="@dimen/_5ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{adapterItem.unitAddress}"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_5ssp" />
+
+                        <!--  android:text="Block 2 Industrial area, Indiranagar,560013"-->
+
+
+                    </LinearLayout>
+
+
+                    <!-- this screen for cancel training-->
+                    <LinearLayout
+                        android:id="@+id/llCancelled"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/drawable_bottom_corner"
+                        android:backgroundTint="#ff6666"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Reason"
+                            android:textColor="#e5eef5"
+                            android:textSize="@dimen/_7ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvCancelledReason"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:text="Cancelled due to weather problem"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_7ssp" />
+
+                    </LinearLayout>
+                    <!--end here-->
+
+                    <!--this below one for completed training showing -->
+                    <LinearLayout
+                        android:id="@+id/llCompleted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_bottom_corner"
+                        android:orientation="horizontal"
+                        android:backgroundTint="#10b376"
+                        android:visibility="visible">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/training_completed_time_ll"
+                            android:orientation="vertical">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginLeft="@dimen/_7sdp"
+                                android:text="Training done at"
+                                android:textColor="#e5eef5"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/training_completed_time"
+                                android:layout_marginLeft="@dimen/_7sdp"
+                                android:text="11:30 am-02:00 pm"
+                                android:textColor="@color/colorWhite"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:textSize="@dimen/_7ssp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/training_completed_participant_ll"
+                            android:orientation="vertical">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginLeft="@dimen/_6sdp"
+                                android:text="Participants"
+                                android:textColor="#e5eef5"
+                                android:textSize="@dimen/_7ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/training_completed_participant"
+                                android:layout_marginLeft="@dimen/_8sdp"
+                                android:text="39"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_8ssp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/training_completed_rating_ll"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginLeft="@dimen/_6sdp"
+                            android:orientation="vertical">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginLeft="@dimen/_6sdp"
+                                android:text="Rating"
+                                android:textColor="#e5eef5"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/training_completed_rating"
+                                android:layout_marginLeft="@dimen/_6sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:drawableRight="@drawable/ic_rating_white"
+                                android:drawableTint="@color/colorWhite"
+                                android:text="4.5/5"
+                                android:drawablePadding="@dimen/_4sdp"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_8ssp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="rota item in dash board"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>

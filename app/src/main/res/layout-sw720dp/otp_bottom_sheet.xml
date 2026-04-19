@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.FeedbackActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp">
+
+        <View
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/LightdarkGrey" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:lineSpacingExtra="4sp"
+            android:text="Validate Feedback by OTP"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:lineSpacingExtra="6sp"
+            android:text="Enter OTP sent to the client"
+            android:textColor="@color/colorTextGrey"
+            android:textSize="@dimen/_10ssp" />
+
+        <com.droidcommons.views.otpview.OtpView
+            android:id="@+id/feedback_otp"
+            style="@style/OtpWidget.OtpView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:focusable="true"
+            android:inputType="number"
+            android:itemBackground="@color/colorWhite"
+            android:text="@{vm.feedbackOtpObs}"
+            android:textColor="@color/textColorBlackBold"
+            app:itemCount="4"
+            app:itemHeight="@dimen/_30sdp"
+            app:itemSpacing="@dimen/_10sdp"
+            app:itemWidth="@dimen/_32sdp"
+            app:lineColor="@color/outlineBorderTrans"
+            app:lineWidth="@dimen/_1sdp"
+            app:state_filled="true"
+            app:viewType="rectangle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resend_feedback_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:text="Resend otp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#d2212f"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/feedbackCloseSheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_12sdp"
+                android:backgroundTint="@color/red"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/close"
+                app:tint="@color/colorWhite" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/feedback_otp_submit_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_8sdp"
+                android:backgroundTint="@color/red"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_arrow_forward"
+                app:tint="@color/colorWhite" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>
+
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.FeedbackActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_top_corner">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/colorWhite">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp">
+
+                <View
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/LightdarkGrey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="4sp"
+                    android:text="Validate Feedback by OTP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    android:text="Enter OTP sent to the client"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_10ssp" />
+
+                <com.droidcommons.views.otpview.OtpView
+                    android:id="@+id/feedback_otp"
+                    style="@style/OtpWidget.OtpView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:focusable="true"
+                    android:inputType="number"
+                    android:itemBackground="@color/colorWhite"
+                    android:text="@{vm.feedbackOtpObs}"
+                    android:textColor="@color/textColorBlackBold"
+                    app:itemCount="4"
+                    app:itemHeight="@dimen/_30sdp"
+                    app:itemSpacing="@dimen/_10sdp"
+                    app:itemWidth="@dimen/_32sdp"
+                    app:lineColor="@color/outlineBorderTrans"
+                    app:lineWidth="@dimen/_1sdp"
+                    app:state_filled="true"
+                    app:viewType="rectangle" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resend_feedback_otp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_1sdp"
+                    android:text="Resend otp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#d2212f"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/feedback_otp_submit_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:backgroundTint="@color/red"
+                    app:fabSize="normal"
+                    app:srcCompat="@drawable/ic_arrow_forward"
+                    app:tint="@color/colorWhite" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>-->

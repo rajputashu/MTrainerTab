@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/drawerGroupOne"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/actionDashboardRota"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Dashboard (ROTA)"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/actionMyUnits"
+            android:icon="@drawable/ic_my_units"
+            android:title="My Units"
+            android:visible="false"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/actionTrainingCalendar"
+            android:icon="@drawable/ic_training_calendar"
+            android:title="Training Calendar"
+            android:visible="false"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/actionCourses"
+            android:icon="@drawable/ic_training_calendar"
+            android:title="Online Training Course" />
+
+        <!--<item
+            android:id="@+id/actionTodayTimeline"
+            android:icon="@drawable/ic_timeline"
+            android:title="Today’s Timeline"
+            android:visible="false"
+            app:showAsAction="never" />-->
+
+        <item
+            android:id="@+id/report_webpage"
+            android:icon="@drawable/ic_rpl_form"
+            android:title="Report"
+            android:visible="false"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/raising_webpage"
+            android:icon="@drawable/ic_rpl_form"
+            android:title="Raising Report"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/online_report"
+            android:icon="@drawable/ic_online_report"
+            android:title="Online Report"
+            app:showAsAction="never" />
+
+    </group>
+
+    <group
+        android:id="@+id/g_two"
+        android:checkableBehavior="single">
+
+        <!--<item
+            android:id="@+id/actionNotifications"
+            android:icon="@drawable/ic_notification"
+            android:title="Notifications"
+            android:visible="false" />-->
+
+        <item
+            android:id="@+id/actionCheckIn"
+            android:icon="@drawable/ic_check_in"
+            android:title="Check In"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/actionTrainingKit"
+            android:icon="@drawable/ic_training_kit"
+            android:title="Mtrainer on Mobile"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/actionMyConveyance"
+            android:icon="@drawable/ic_my_conveyance"
+            android:title="My Conveyance"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/report_employee"
+            android:icon="@drawable/ic_rpl_form"
+            android:title="Induction Report" />
+
+        <!--<item
+            android:id="@+id/actionMyAttendance"
+            android:icon="@drawable/ic_my_attendance"
+            android:title="My Attendance"
+            android:visible="false" />-->
+
+        <item
+            android:id="@+id/actionRplForm"
+            android:icon="@drawable/ic_rpl_form"
+            android:title="RPL Form"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/actionTickets"
+            android:icon="@drawable/ic_tickets"
+            android:title="Tickets"
+            android:visible="false" />
+        <item
+            android:id="@+id/actionRefresh"
+            android:icon="@drawable/ic_refresh"
+            android:title="Refresh" />
+
+    </group>
+</menu>

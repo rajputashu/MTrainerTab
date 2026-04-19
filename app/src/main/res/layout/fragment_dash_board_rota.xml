@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="timeline"
+            type="com.sisindia.ai.mtrainer.android.features.rota.TimeLineRecyclerAdapter" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.rota.DashBoardRotaViewModel" />
+
+        <variable
+            name="item"
+            type="com.sisindia.ai.mtrainer.android.models.TrainerPerformanceResponse.PerformanceResponse" />
+
+        <variable
+            name="adapter"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingCalendarResponse.TrainingCalendar" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--only parent-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@color/colorWhite"
+                app:cardCornerRadius="@dimen/_8sdp">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llPerformance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/llUserTopLayoutDB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_6sdp"
+                                android:orientation="horizontal">
+
+                                <com.droidcommons.views.roundedimageview.RoundedImageView
+                                    android:id="@+id/ivUserPic"
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    app:riv_border_color="@color/colorTextGrey"
+                                    app:riv_border_width="@dimen/_1sdp"
+                                    app:riv_oval="true"
+                                    app:srcCompat="@drawable/ic_profile_pic" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:gravity="top"
+                                        android:text="Welcome"
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_6ssp" />
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_5sdp"
+                                        android:orientation="horizontal">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_10sdp"
+                                            android:text="@{vm.trainername}"
+                                            android:textColor="@color/textColorBlackBold"
+                                            android:textSize="@dimen/_6ssp"
+                                            android:textStyle="bold" />
+
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="bottom"
+                                            android:text="(Trainer)"
+                                            android:textColor="@color/textColorBlackBold"
+                                            android:textSize="@dimen/_6ssp"
+                                            android:textStyle="bold" />
+
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/performanceDivider1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_below="@id/llBelowTopLayoutDB"
+                            android:background="@color/colorLightGrey" />
+
+
+                        <LinearLayout
+                            android:id="@+id/llBelowTopLayoutDB"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_badge1"
+                                        android:drawablePadding="@dimen/_6sdp"
+                                        android:text="@{vm.regionalrank}"
+                                        android:textColor="@color/textColorBlackBold"
+                                        android:textSize="@dimen/_8ssp"
+                                        android:textStyle="bold" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/regional"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_4sdp"
+                                        android:padding="@dimen/_2sdp"
+                                        android:singleLine="true"
+                                        android:text="National Rank "
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/_1sdp"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorLightGrey"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_main_star"
+                                        android:drawablePadding="@dimen/_6sdp"
+                                        android:text="@{vm.actualscore}"
+                                        android:textColor="@color/textColorBlackBold"
+                                        android:textSize="@dimen/_8ssp"
+                                        android:textStyle="bold" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_4sdp"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Score"
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/performanceDivider"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_below="@id/llBelowTopLayoutDB"
+                            android:background="@color/colorLightGrey"
+                            android:visibility="gone" />
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/vpDashBoard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/performanceDivider"
+                            android:layout_marginTop="-35dp"
+                            app:dashBoardPerformanceViewListeners="@{vm.viewListeners}"
+                            app:setDashBoardPerformanceViewPager="@{vm.performanceAdapter}" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tlDashBoard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="26dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@android:color/transparent"
+                            app:tabGravity="center"
+                            app:tabIndicatorColor="@null"
+                            app:tabMaxWidth="@dimen/_15sdp"
+                            app:tabMode="scrollable"
+                            app:tabPaddingEnd="@dimen/_3sdp"
+                            app:tabPaddingStart="@dimen/_3sdp" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_6sdp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/training_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:drawableTop="@drawable/ic_training_content_cam"
+                                android:gravity="center"
+                                android:padding="@dimen/_4sdp"
+                                android:text="Training\nContent"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_5ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/training_calender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:drawableTop="@drawable/ic_training_calender_cal"
+                                android:gravity="center"
+                                android:padding="@dimen/_4sdp"
+                                android:text="Training\nCalender"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_5ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/rpl_form"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:drawableTop="@drawable/ic_rpl1_form_rpl"
+                                android:gravity="center"
+                                android:padding="@dimen/_4sdp"
+                                android:text="RPL\nForm"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_5ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/check_in"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginRight="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:drawableTop="@drawable/ic_check1_in_ch"
+                                android:gravity="center"
+                                android:padding="@dimen/_4sdp"
+                                android:text="Check In"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_5ssp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_weight="1.2"
+                android:background="@color/colorWhite"
+                app:cardCornerRadius="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="Today's"
+                        android:textColor="@color/colorTextGrey"
+                        android:textSize="@dimen/_6ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:text="Timeline"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:backgroundTint="@color/colorWhite"
+                        android:nestedScrollingEnabled="false"
+                        app:timelineRecyclerAdapter="@{vm.recycleradapterTimeLine}" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_weight=".5"
+                        android:gravity="start"
+                        android:text="Today's Rota"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/completed_rota_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight=".5"
+                        android:gravity="end"
+                        android:text="33% Done"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+                </LinearLayout>
+
+                <!--  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+  -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:fillViewport="true">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"
+                            app:myDashBoardRotaViewListener="@{vm.viewListeners}"
+                            app:setDashBoardRotaRecyclerAdapter="@{vm.recyclerAdapter}" />
+                    </ScrollView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/norota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:gravity="center"
+                        android:text="No Rota"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_6ssp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <!-- </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                 android:visibility="@{adapter.rotaId ==0 ? View.GONE : View.VISIBLE}"
+ -->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{vm.isLoading}" />
+    </RelativeLayout>
+</layout>

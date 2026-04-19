@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.checkin.CheckInViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+
+        <include
+            android:id="@+id/trainer_toolbar"
+            android:visibility="gone"
+            layout="@layout/app_toolbar" />
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainer_toolbar"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Check In "
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_4sdp"
+            android:background="@drawable/rectangle_border"
+            android:id="@+id/taining_not_done"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/taining_not_done"
+            android:layout_above="@+id/footer_text"
+            android:layout_margin="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_border"
+                android:padding="@dimen/_5sdp"
+                >
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rg_issue"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Branch"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_1"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Region"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_2"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Corporate"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_3"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Client Meeting"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_4"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Special Duty"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_5"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Others"
+                        android:textColor="@color/greyBlack"
+                        android:id="@+id/rb_6"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="sans-serif"
+                        android:layout_margin="@dimen/_1sdp"
+                        />
+
+                </RadioGroup>
+
+
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/other_isue"
+                    android:layout_below="@+id/rg_issue"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_8ssp"
+                    android:padding="@dimen/_10sdp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#000"
+                    android:hint="Remarks"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_below="@+id/other_isue"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:id="@+id/buttonCheckIn"
+                    android:background="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/white"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="Check In"/>
+
+            </RelativeLayout>
+            <!--            android:onClick="@{vm::submitCheckin}"-->
+
+        </ScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/grey"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/sis"
+            android:textColor="#424242"
+            android:textSize="@dimen/_12ssp" />
+
+        <!-- <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:text="@{vm.toString()}" />-->
+    </RelativeLayout>
+</layout>

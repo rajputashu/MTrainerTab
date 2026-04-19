@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapteritem"
+            type="com.sisindia.ai.mtrainer.android.models.ContactListResponse.ClientData" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/client_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/client_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:text="@{adapteritem.clientName}"
+                android:textAlignment="textStart"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_12ssp" />
+
+            <RadioButton
+                android:id="@+id/client_radio_btn"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:buttonTint="@color/radio_button_selected_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

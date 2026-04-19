@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">MtrainerV2</string>
+    <string name="account">MTRAINER2.0</string>
+    <string name="account_type">com.sisindia.ai.mtrainer.android</string>
+<!--    <string name="authority">com.sisindia.ai.mtrainer.android.android.syncadpter.provider</string>-->
+    <string name="authority">com.sisindia.ai.mtrainer.android.syncadapter.provider</string>
+
+    <string name="prompt_point_at_a_barcode">Point your camera at a barcode</string>
+    <string name="prompt_move_camera_closer">Move closer to search</string>
+    <string name="string_prompt_searching">Searching&#8230;</string>
+    <string name="total_time_spent">Total time spent</string>
+    <string name="temp_timing"> <b>3.2/4.5</b> hrs </string>
+
+    <string name="navigation_text_take_attendance">Take\nAttendance</string>
+    <string name="navigation_text_click_training_photos">Click\nTraining Photos</string>
+    <string name="navigation_text_choose_topics_trained">Choose\nTopics Trained</string>
+    <string name="navigation_text_take_assessment">Take\nAssessment</string>
+    <string name="navigation_text_rpl_form">RPL\nForm</string>
+    <string name="navigation_assessment_report">Assessment\nReport</string>
+    <string name="empty"></string>
+    <!--  <string name="search_participant_name">Search by name</string>-->
+
+    <string name="search_participant_name"><font size="20">Search by name</font></string>
+    <string name="scan">Scan</string>
+    <string name="entry_post">Entry Post</string>
+    <string name="group_training">Group Training</string>
+    <string name="exit_post">Exit Post</string>
+    <string name="parking_post">Parking Post</string>
+    <string name="something_went_wrong">Oops.. Some thing went wrong</string>
+    <string name="start_for_site">Start For Site</string>
+    <string name="start_training">Start Training</string>
+    <string name="cancel_training">Cancel Training</string>
+    <string name="once_you_reach_the_site_tap_and_start_training">Once you reach the site, tap and start training</string>
+    <string name="started_for_site">Started for site</string>
+    <string name="navigate">Navigate</string>
+    <string name="to_start_training_start_for_site_and_tap_on_button_below">To start training, start for site and tap on button below</string>
+    <string name="string_error_in_login">Please try again later</string>
+    <string name="string_edit_phone_number">Edit Phone Number</string>
+    <string name="string_verification_code">Verification Code</string>
+
+
+    <string name="trained_by_manish_trainer_1_2_hrs">Trained by Manish (Trainer) - 1.2 hrs</string>
+    <string name="instakart_service_pvt_ltd">InstaKart Service Pvt Ltd.</string>
+    <string name="previous_trainings_3">Previous Trainings</string>
+    <string name="trained_by_manish_trainer">Trained by Manish (Trainer)</string>
+    <string name="training_entry_post">Training - Entry Post</string>
+    <string name="_18_feb_2020">18 Feb, 2020</string>
+    <string name="client_feedback">Client Feedback</string>
+    <string name="attendance">Attendance</string>
+    <string name="_12">12</string>
+    <string name="manish_trainer_18_feb_2020">Manish (Trainer) - 18 Feb, 2020</string>
+    <string name="topics_trained">Topics Trained</string>
+    <string name="training_photos">Training Photos</string>
+    <string name="attendance_12">Attendance (12)</string>
+    <string name="_0">0</string>
+    <string name="string_duty_on">Duty On</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="done">Done</string>
+    <string name="add_training_rota">Add Training Rota</string>
+    <string name="add_topic">Add Topic</string>
+    <string name="choose_topics">Choose Topics Trained</string>
+    <string name="training_actions">Training Actions</string>
+    <string name="assessment">Assessment</string>
+    <string name="assessment_report">Assessment Report</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="record">Record</string>
+    <string name="description_info">description info</string>
+    <string name="stop">Stop</string>
+    <string name="pending">Pending</string>
+    <string name="dialog_message">Dialog Message</string>
+    <string name="dialog_title">Dialog Title</string>
+    <string name="update_text">Updating Mtrainer ,Please wait ...</string>
+    <string name="sis"><![CDATA[Security & Intelligence Services(India) Ltd]]></string>
+    <string name="assessment_q_null">Unable to fetch assessment questions.</string>
+
+    <string name="training_started">Training started at </string>
+
+    <!-- Strings for camera settings. -->
+    <string name="pref_category_camera">Camera</string>
+    <string name="pref_key_rear_camera_preview_size" translatable="false">rcpvs</string>
+    <string name="pref_key_rear_camera_picture_size" translatable="false">rcpts</string>
+    <string name="pref_title_rear_camera_preview_size">Rear camera preview size</string>
+
+    <!-- Strings for barcode detection settings. -->
+    <string name="pref_category_barcode_detection">Barcode detection</string>
+    <string name="pref_key_barcode_reticle_width" translatable="false">barcode_brw</string>
+    <string name="pref_title_barcode_reticle_width">Barcode reticle width</string>
+    <string name="pref_summary_barcode_reticle_width" formatted="false">Relative to the camera view width, ranges from 50% to 95%</string>
+    <string name="pref_key_barcode_reticle_height" translatable="false">barcode_brh</string>
+    <string name="pref_title_barcode_reticle_height">Barcode reticle height</string>
+    <string name="pref_summary_barcode_reticle_height" formatted="false">Relative to the camera view height, ranges from 20% to 80%</string>
+    <string name="pref_key_enable_barcode_size_check" translatable="false">barcode_ebsc</string>
+    <string name="pref_title_enable_barcode_size_check">Enable barcode size check</string>
+    <string name="pref_summary_enable_barcode_size_check">Will prompt user to move camera closer if the detected barcode is too small</string>
+    <string name="pref_key_minimum_barcode_width" translatable="false">barcode_mbw</string>
+    <string name="pref_title_minimum_barcode_width">Minimum barcode width</string>
+    <string name="pref_summary_minimum_barcode_width" formatted="false">Relative to the reticle width, ranges from 20% to 80% (only applicable when barcode size check enabled)</string>
+    <string name="pref_key_delay_loading_barcode_result" translatable="false">barcode_dlbr</string>
+    <string name="pref_title_delay_loading_barcode_result">Delay loading barcode result</string>
+    <string name="pref_summary_delay_loading_barcode_result">Will show the loading spinner for 2s</string>
+    <string name="prompt_searching">Searching&#8230;</string>
+    <string name="site_post_instruction">Site &amp; Post Instruction</string>
+    <string name="search">Search</string>
+    <string name="string_training_calender">Training Calender</string>
+    <string name="string_date_from">From</string>
+    <string name="string_date_to">To</string>
+    <string name="select_date_range">Select Date Range</string>
+    <string name="string_apply">Apply</string>
+    <string name="string_branch">Branch</string>
+    <string name="string_site">Site</string>
+    <string name="estimated_start_datetime">Estimated\nStart DateTime</string>
+    <string name="estimated_end_date_time">Estimated\nend date time</string>
+    <string name="actual_start_datetime">Actual\nStart DateTime</string>
+    <string name="actual_end_datetime">Actual\nEnd DateTime</string>
+    <string name="string_status">Status</string>
+    <string name="string_data_not_found">Data not Found</string>
+    <string name="string_send_mail">Send\nMail</string>
+    <string name="string_course_type">Course Type</string>
+    <string name="string_program_type">Program</string>
+    <string name="string_course_list">Course List</string>
+    <string name="string_course_topic">Course Topic</string>
+    <string name="string_assign_course">Assign Course</string>
+    <string name="string_view_course_report">View Report</string>
+    <string name="string_course_score">Course\n(Completed/Assign)</string>
+    <string name="string_course_topic_score">Topics\n(Completed/Assign)</string>
+    <string name="string_assessment_score">Assessment\n(Completed/Assign)</string>
+    <string name="string_question_score">Question\n(Completed/Assign)</string>
+    <string name="string_score_obtained">Score(Marks)\n(Obtain/Total)</string>
+    <string name="string_result">Result</string>
+
+    <string name="string_course_score_value">%1d/%2d</string>
+    <string name="string_topics_score_value">%1d/%2d</string>
+    <string name="string_assessment_score_value">%1d/%2d</string>
+    <string name="string_question_score_value">%1d/%2d</string>
+    <string name="string_score_obtained_value">%1d/%2d</string>
+    <string name="loading_config_msg">Please wait while we load your configuration data&#8230;</string>
+
+    <string-array name="trainingType">
+
+        <item>Select</item>
+        <item>TAB</item>
+        <item>VAN</item>
+
+    </string-array>
+
+    <string-array name="onRoadType">
+        <item>Select</item>
+
+        <item>YES</item>
+
+        <item>NO</item>
+
+    </string-array>
+
+    <string-array name="selectReason">
+
+        <item>Select</item>
+        <item>Van servicing</item>
+        <item>Weather problem</item>
+        <item>Driver Leave</item>
+        <item>Van not working</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>

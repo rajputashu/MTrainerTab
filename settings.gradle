@@ -1,0 +1,3 @@
+include ':searchablespinnerlibrary-release'
+include ':app', ':droidcommons'
+rootProject.name='MtrainerV2'

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_more"
+        android:orderInCategory="9"
+        android:title="Start Training"
+        app:showAsAction="never"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/action_status"
+        android:orderInCategory="10"
+        android:title="Start Training"
+        app:showAsAction="never"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="11"
+        android:title="Start Training"
+        app:showAsAction="never"
+        android:visible="false"/>
+<!--
+    <item
+        android:id="@+id/actionVideo"
+        android:icon="@drawable/ic_video"
+        android:orderInCategory="12"
+        android:title="Record Video"
+        app:showAsAction="ifRoom" />-->
+</menu>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relative_trainingkit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_red"
+        android:paddingBottom="20dp"
+        android:paddingTop="@dimen/_15sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:tint="@color/Grey"
+            android:paddingLeft="@dimen/_15sdp"
+            android:src="@drawable/ic_slideshow_grey_700_36dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fireandsafety"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageicon"
+            android:paddingLeft="@dimen/_15sdp"
+            android:text="FIRE AND SAFETY"
+            android:textColor="@color/colorLightRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fireandsafety"
+            android:layout_toRightOf="@id/imageicon"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="8dp"
+            android:visibility="gone"
+            android:id="@+id/count"
+            android:text="24 SLIDES/40 MINUTES"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_right_arrow" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_trainingkit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_red"
+        android:paddingBottom="20dp"
+        android:paddingTop="@dimen/_15sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageicon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/_15sdp"
+            android:src="@drawable/ic_slideshow_grey_700_36dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fireandsafety1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageicon1"
+            android:paddingLeft="@dimen/_15sdp"
+            android:text="INDUSTRIAL ELECTRICAL EQUIPMENTS"
+            android:textColor="@color/colorLightRed"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fireandsafety1"
+            android:layout_toRightOf="@id/imageicon1"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="8dp"
+            android:text="25 MINUTES"
+            android:textSize="13dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/fireandsafety1"
+            android:src="@drawable/ic_right_arrow" />
+
+    </RelativeLayout>
+
+</LinearLayout>

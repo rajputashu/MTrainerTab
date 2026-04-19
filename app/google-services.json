@@ -1,0 +1,87 @@
+{
+  "project_info": {
+    "project_number": "376561761004",
+    "firebase_url": "https://mtrainer2-95841.firebaseio.com",
+    "project_id": "mtrainer2-95841",
+    "storage_bucket": "mtrainer2-95841.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376561761004:android:fdfc50292aab82638c43c9",
+        "android_client_info": {
+          "package_name": "com.sisindia.ai.mtrainer.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4yz5b5_OTaY25fbehWMCxE7GsR_tMte8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376561761004:android:341427a49ecea68f8c43c9",
+        "android_client_info": {
+          "package_name": "com.sisindia.ai.mtrainer.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4yz5b5_OTaY25fbehWMCxE7GsR_tMte8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376561761004:android:cd419af2764022f38c43c9",
+        "android_client_info": {
+          "package_name": "com.sisindia.ai.mtrainer.android.sisco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4yz5b5_OTaY25fbehWMCxE7GsR_tMte8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376561761004:android:600f2cbfc987451f8c43c9",
+        "android_client_info": {
+          "package_name": "com.sisindia.ai.mtrainer.android.uniq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4yz5b5_OTaY25fbehWMCxE7GsR_tMte8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

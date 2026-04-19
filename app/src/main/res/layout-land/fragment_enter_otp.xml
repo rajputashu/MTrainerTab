@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userViewModel"
+            type="com.sisindia.ai.mtrainer.android.features.login.UserViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorWhite"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_verification_code"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_12ssp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_edit_phone_number"
+                    android:textAlignment="center"
+                    android:onClick="@{userViewModel::onEditNumberClick}"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"/>
+
+
+                <com.droidcommons.views.otpview.OtpView
+                    android:id="@+id/otp_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:inputType="number"
+                    android:itemBackground="@color/colorWhite"
+                    android:textColor="@color/textColorBlackBold"
+                    android:text="@={userViewModel.otpTextObs}"
+                    app:itemCount="6"
+                    app:itemHeight="@dimen/_35sdp"
+                    app:itemSpacing="@dimen/_6sdp"
+                    app:itemWidth="@dimen/_35sdp"
+                    app:lineColor="@color/outlineBorderTrans"
+                    app:lineWidth="@dimen/_1sdp"
+                    app:state_filled="true"
+                    app:viewType="rectangle" />
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:text="Resend otp"
+                    android:textAlignment="center"
+                    android:onClick="@{userViewModel::onResendOtpClick}"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/holo_red_light"
+                    android:layout_marginRight="@dimen/_9sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/PortraitButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textColor="@color/colorWhite"
+                android:text="submit"
+                android:onClick="@{userViewModel::onOtpSubmitClick}" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{userViewModel.isLoading}" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{userViewModel.isotpLoading}" />
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

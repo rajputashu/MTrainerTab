@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.dashboard.DashBoardViewModel" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:layout_margin="@dimen/_40sdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:visibility="invisible"
+            android:backgroundTint="@color/Grey"
+            android:background="@drawable/ic_round_circle"
+            android:padding="@dimen/_4sdp"
+            app:srcCompat="@drawable/ic_clear"
+            android:id="@+id/close_btn"/>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_0sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+
+                android:text="Training Through"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:gravity="center"
+                android:background="@drawable/grey_black_border"
+                android:layout_marginBottom="@dimen/_4sdp">
+                <!--   trainingThroughType="@{1}"-->
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:id="@+id/spinner_training_type"
+                    android:textColor="@color/black"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8ssp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.cantShowSpinner1 ? View.GONE : View.VISIBLE}"
+
+            android:id="@+id/ll_On_road"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:text="On Road"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_marginLeft="@dimen/_57sdp"
+                android:gravity="center"
+                android:background="@drawable/grey_black_border"
+                android:layout_marginBottom="@dimen/_4sdp"
+                >
+
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:id="@+id/spinner_on_road"
+                    android:textColor="@color/black"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8ssp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.reasonShowSpinner ? View.GONE : View.VISIBLE}"
+            android:id="@+id/ll_select_reason"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:text="Select Reason"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_marginLeft="@dimen/_32sdp"
+                android:background="@drawable/grey_black_border"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:id="@+id/relative2">
+
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+
+                    android:id="@+id/spinner_select_reason"
+                    android:textColor="@color/black"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8ssp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_0sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/roundcornerblue"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="normal" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

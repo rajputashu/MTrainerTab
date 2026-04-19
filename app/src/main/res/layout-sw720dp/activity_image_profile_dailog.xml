@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.dashboard.DashBoardViewModel" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_10sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/camera_opt"
+            android:drawableTop="@drawable/ic_camera_alt_red_24dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:drawablePadding="3dp"
+            android:layout_height="wrap_content"
+            android:text="Camera"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/gallery_opt"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/camera_opt"
+            android:drawableTop="@drawable/ic_gallry"
+            android:layout_marginBottom="7dp"
+            android:layout_height="wrap_content"
+            android:text="Gallery"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="30dp"
+            android:drawablePadding="3dp"
+            android:id="@+id/camera_cancel"
+            android:layout_toRightOf="@+id/gallery_opt"
+            android:drawableTop="@drawable/ic_cancelled_image"
+            android:layout_marginBottom="7dp"
+            android:text="Cancel"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</RelativeLayout>
+</layout>

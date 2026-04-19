@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.barcode.barcodedetection.BarCodeResultViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/barcode_bottom_sheet_padding_vertical"
+        android:paddingBottom="@dimen/barcode_bottom_sheet_padding_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/tv_empcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_7sdp" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btn_emp_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_empcode"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:gravity="center"
+            android:onClick="@{vm::initEmployeeSaving}"
+            android:text="Add"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/red"
+            app:tint="@color/colorWhite" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{vm.addEmpLoading ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>

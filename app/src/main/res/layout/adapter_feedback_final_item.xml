@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="textItem"
+            type="com.sisindia.ai.mtrainer.android.models.FeedbackReasonQuestionItem" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/feedback_item_container">
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/check_box_selected_color"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="@color/textColorBlackBold"
+                android:id="@+id/final_checkbox"
+                android:clickable="false"
+                android:text="@{textItem.question}"/>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

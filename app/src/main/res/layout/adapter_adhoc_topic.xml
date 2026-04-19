@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.AdhocTopicsResponse.AdhocTopics" />
+
+        <variable
+            name="textItem"
+            type="com.sisindia.ai.mtrainer.android.models.ChooseTopicsResponse.TopicsResponse" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@color/colorWhite"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:id="@+id/topic_container">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/adhoc_name"
+                android:layout_weight="1"
+                android:minHeight="@dimen/_18sdp"
+                android:gravity="start|center"
+
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/_7ssp"
+                android:text="@{adapterItem.topicName}"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:id="@+id/topic_radio_btn"
+
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:buttonTint="@color/radio_button_selected_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

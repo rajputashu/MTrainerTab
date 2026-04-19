@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.timeline.TimeLineViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="start|center"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:text="Today's"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/_10ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:text="Timeline"
+                android:textColor="@color/textColorBlackBold"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/_11ssp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:backgroundTint="@color/colorWhite"
+            android:nestedScrollingEnabled="false"
+            app:timelineRecyclerAdapter1="@{vm.recycleradapterTimeLine1}" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

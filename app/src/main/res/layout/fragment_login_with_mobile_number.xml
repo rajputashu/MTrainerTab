@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userViewModel"
+            type="com.sisindia.ai.mtrainer.android.features.login.UserViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/icon_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/rlMobileNumberLayout"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/_5sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_mtrainer_white" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="#d6dce6" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    app:srcCompat="@drawable/company_logo" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <RelativeLayout
+                android:id="@+id/rlMobileNumberLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/border"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <com.droidcommons.views.roundedimageview.RoundedImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30ssp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:src="@drawable/ic_country1" />
+
+
+                    <TextView
+                        android:layout_width="@dimen/_50ssp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:dropDownWidth="@dimen/_150sdp"
+                        android:gravity="center"
+                        android:popupBackground="@color/colorLightGrey"
+                        android:text="+91"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@null"
+                        android:hint="Enter phone number"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:text="@={userViewModel.phoneNumberObs}"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textColorHint="@color/outlineBorderTrans"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_minus3sdp"
+                    android:background="@color/colorWhite"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    android:text="Enter phone number"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_12ssp" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlMobileNumberLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_34sdp"
+                android:text="A 6 digit OTP will be sent to verify your number"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/_12ssp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/PortraitButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{userViewModel::onLoginSubmitMobileClick}"
+                android:text="send otp"
+                android:textColor="@color/colorWhite" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{userViewModel.isLoading}" />
+        </RelativeLayout>
+    </ScrollView>
+</layout>

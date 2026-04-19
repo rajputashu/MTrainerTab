@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.PreTrainingReviewViewModel" />
+        <variable
+            name="adapteritem"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingCalendarResponse.TrainingCalendar" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbPreTrainingReview"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:layout_scrollFlags="snap"
+                app:title=" " >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:text="Pre-Training Review"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:id="@+id/llBottomLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/navigationBackgroud"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:visibility="@{(vm.preTrainingStateObs == 0)?View.GONE:View.VISIBLE}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivCompletedIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_6sdp"
+                        android:padding="@dimen/_8sdp"
+                        app:srcCompat="@drawable/ic_completed" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStartedForSite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_toEndOf="@id/ivCompletedIcon"
+                        android:text="@string/started_for_site" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_toEndOf="@id/tvStartedForSite"
+                        android:padding="@dimen/_6sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/navigate_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_16sdp"
+                        android:background="@drawable/white_less_button"
+                        android:drawableStart="@drawable/ic_near_me"
+                        android:drawablePadding="@dimen/_4sdp"
+                        android:alpha="0.3"
+                        android:gravity="center"
+                        android:padding="@dimen/_4sdp"
+                        android:text="@string/navigate"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_8ssp" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_8ssp"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:textColor="@color/black"
+                    android:text="@{(vm.preTrainingStateObs == 0)?@string/to_start_training_start_for_site_and_tap_on_button_below:@string/once_you_reach_the_site_tap_and_start_training}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_red_border"
+                        android:onClick="@{vm::onCancelTraining}"
+                        android:text="@string/cancel_training"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/red"
+                        android:onClick="@{vm::onStartForSite}"
+                        android:text="@{(vm.preTrainingStateObs == 0)?@string/start_for_site:@string/start_training}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_8ssp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nsvPreTraining"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/llBottomLayout">
+
+                <LinearLayout
+                    android:id="@+id/flPreTraining"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/pendingBackground"
+                        android:gravity="center_vertical">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:drawableStart="@drawable/ic_pending"
+                            android:drawablePadding="@dimen/_6sdp"
+                            android:textSize="@dimen/_8ssp"
+                            android:text="Pending"
+                            android:textColor="@color/pendingTextYellow" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:text="@{vm.unitName}"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.3"
+                                android:gravity="end"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_marginRight="@dimen/_2sdp"
+                                    android:textSize="@dimen/_8ssp"
+                                    android:id="@+id/training_type"
+                                    android:drawablePadding="@dimen/_4sdp"
+                                    android:textColor="@color/textColorBlackBold" />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextGrey"
+                                android:text="ADDRESS"
+                                android:textSize="@dimen/_7ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{vm.unitAddress}"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_7ssp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_12sdp"
+                            android:layout_marginTop="-8dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="PLANNED TRANING TIME"
+                                android:textColor="@color/colorTextGrey"
+                                android:textSize="@dimen/_7ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{vm.plannedTime}"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_7ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--view pager-->
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/llPreviousTraning"
+                            android:layout_width="match_parent"
+                            android:layout_height="?actionBarSize"
+                            android:gravity="center_vertical"
+                            android:weightSum="1"
+                            android:visibility="visible"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_weight="0.8"
+                                android:text="@string/previous_trainings_3"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/_8ssp"/>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/arrow"
+                                android:layout_weight="0.2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                app:drawableTint="#75859d"
+                                android:onClick="@{vm::tvArrowDownClick}"
+                                android:drawableEnd="@drawable/ic_arrow_down"
+                                android:drawableRight="@drawable/ic_arrow_down"
+                                android:padding="@dimen/_14sdp"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_14ssp" />
+                            <!--android:drawableEnd="@drawable/ic_arrow_down"
+                            android:onClick="@{vm::tvArrowDownClick}"
+                            android:layout_marginLeft="@dimen/_70sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            app:drawableTint="#75859d"
+                                android:drawableRight="@drawable/ic_arrow_down"-->
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/arrow1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.2"
+                                android:layout_gravity="end"
+                                android:gravity="end"
+
+                                android:visibility="gone"
+                                app:drawableTint="#75859d"
+                                android:onClick="@{vm::tvArrowUpClick}"
+                                android:drawableEnd="@drawable/ic_arrow_up"
+                                android:padding="@dimen/_14sdp"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_14ssp" />
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:layerType="software"
+                            android:id="@+id/viewDashLine"
+                            android:visibility="gone"
+                            android:background="@drawable/dotted_line" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="vertical"
+                            android:id="@+id/llViewpager">
+
+
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/vp_previous_training"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                app:previousTrainingViewListeners="@{vm.viewListeners}"
+                                app:setPreviousTrainingViewPager="@{vm.previousTrainingAdapter}"/>
+                            <!--android:layout_alignParentTop="true"
+                             android:layout_marginEnd="@dimen/_8sdp"-->
+
+                            <com.google.android.material.tabs.TabLayout
+                                android:id="@+id/tl_previous_training"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_below="@id/vp_previous_training"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:background="@android:color/transparent"
+                                app:tabGravity="center"
+                                app:tabIndicatorColor="@null"
+                                app:tabMaxWidth="@dimen/_15sdp"
+                                app:tabMode="scrollable"
+                                app:tabPaddingEnd="@dimen/_3sdp"
+                                app:tabPaddingStart="@dimen/_3sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:text="Today’s Training Topics"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_8ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            app:setTopicsCoveredRecyclerAdapter="@{vm.topicsRecyclerAdapter}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{vm.isLoading}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

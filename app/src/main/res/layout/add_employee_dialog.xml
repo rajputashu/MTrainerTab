@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.attendancemodule.TrainingAttendanceViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_2sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="Add Employee"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/close_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/ic_round_circle"
+                    android:backgroundTint="@color/Grey"
+                    android:padding="@dimen/_4sdp"
+                    app:srcCompat="@drawable/ic_clear" />
+
+                <EditText
+                    android:id="@+id/et_employeeId"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="@{vm.empRegNo}"
+                    android:layout_marginRight="@dimen/_10sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:text="@{vm.empName.equals(``) ? `` : vm.empName}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="@{vm.empName.equals(``) ? View.GONE : View.VISIBLE}" />
+
+                <EditText
+                    android:id="@+id/et_employee_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="Enter Employee Name"
+                    android:visibility="@{vm.canAddEmployeeName ? View.VISIBLE : View.GONE}" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/adhoc_employee_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/et_adhoc_emp_regNo"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="?actionBarSize"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:hint="Enter employee Reg No" />
+
+                    <EditText
+                        android:id="@+id/et_adhoc_emp_name"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="?actionBarSize"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:hint="Enter employee name" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:gravity="right">
+
+                        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                            android:id="@+id/btn_adhoc_emp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_8sdp"
+                            android:gravity="center"
+                            android:text="add"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            app:backgroundTint="@color/red"
+                            app:tint="@color/colorWhite" />
+
+                        <!--  android:onClick="@{vm::onAddAdhocEmpClicked}"-->
+
+                        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginLeft="@dimen/_8sdp"
+
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_8sdp"
+                            android:alpha="@{vm.addEmpLoading ? 0.3f : 1f}"
+                            android:clickable="@{vm.addEmpLoading ? false : true}"
+                            android:gravity="center"
+                            android:onClick="@{vm::onAddClicked}"
+                            android:text="@{vm.isAddVisual ? `Add` : `Search`}"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/red"
+                            app:tint="@color/colorWhite" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{vm.addEmpLoading ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

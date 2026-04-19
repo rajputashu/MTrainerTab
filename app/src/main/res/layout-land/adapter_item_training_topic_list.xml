@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlTrainingItem"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/less_rounded_border"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTopicListItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:text="@string/attendance" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/ivTopicListArrow"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/training_item_chip_background"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_12" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTopicListArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:srcCompat="@drawable/ic_right_arrow" />
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

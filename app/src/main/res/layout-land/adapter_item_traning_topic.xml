@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <!--<variable
+            name="item"
+            type="String" />
+        -->
+        <variable
+            name="textItem"
+            type="com.sisindia.ai.mtrainer.android.models.ChooseTopicsResponse.TopicsResponse" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:drawableLeft="@drawable/ic_dot"
+        android:drawableTint="@color/colorTextGrey"
+        android:drawablePadding="@dimen/_6sdp"
+        android:textSize="@dimen/_7ssp"
+        android:gravity="start"
+        android:text="@{textItem.topicName}" />
+    <!--       android:text="@{item}"-->
+
+</layout>

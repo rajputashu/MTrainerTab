@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+            <import type="android.view.View"/>
+            <variable
+                name="vm"
+                type="com.sisindia.ai.mtrainer.android.features.spi.draftspi.DraftSpiViewModel" />
+
+
+    </data>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/_20sdp"
+    android:layout_marginLeft="@dimen/_20sdp"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/_8sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_0sdp"
+        android:layout_marginTop="@dimen/_0sdp"
+        android:layout_marginBottom="@dimen/_0sdp">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:backgroundTint="@color/Grey"
+            android:background="@drawable/ic_round_circle"
+            android:padding="@dimen/_4sdp"
+            app:srcCompat="@drawable/ic_clear"
+            android:id="@+id/spi_close_btn"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.otaliastudios.zoom.ZoomImageView
+            android:id="@+id/spi_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="?actionBarSize"
+            android:scrollbars="vertical|horizontal"
+            app:alignment="center"
+            app:animationDuration="280"
+            app:flingEnabled="true"
+            app:horizontalPanEnabled="true"
+            app:maxZoom="2.5"
+            app:maxZoomType="zoom"
+            app:minZoom="0.7"
+            app:minZoomType="zoom"
+            app:oneFingerScrollEnabled="true"
+            app:overPinchable="true"
+            app:overScrollHorizontal="true"
+            app:overScrollVertical="true"
+            app:scrollEnabled="true"
+            app:threeFingersScrollEnabled="true"
+            app:transformation="centerInside"
+            app:transformationGravity="auto"
+            app:twoFingersScrollEnabled="true"
+            app:verticalPanEnabled="true"
+            app:zoomEnabled="true" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</layout>

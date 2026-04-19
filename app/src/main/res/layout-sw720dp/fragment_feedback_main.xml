@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.MainFeedbackViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:id="@+id/feedback_main_container">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Whom did you meet?"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+
+            android:textColor="#181c2d"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/flButtonTraining"
+            app:setFeedbackRecyclerAdapter="@{vm.feedbackActivityRecylerAdapter}"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            android:background="#e0e7ee" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroudGray"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@color/colorWhite"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:id="@+id/feedback_client_not_present">
+                <RadioButton
+                    android:id="@+id/feedback_radio_btn"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:textAlignment="textStart"
+                    android:text="Client was not present at site"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

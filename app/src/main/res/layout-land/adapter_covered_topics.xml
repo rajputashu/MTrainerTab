@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:drawableLeft="@drawable/ic_dot"
+        android:drawableTint="@color/colorTextGrey"
+        android:drawablePadding="@dimen/_6sdp"
+        android:textSize="@dimen/_8ssp"
+        android:gravity="start"
+        android:text="@{item.trim()}" />
+
+</layout>

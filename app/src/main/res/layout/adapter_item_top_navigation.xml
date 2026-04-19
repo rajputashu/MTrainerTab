@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.uimodels.NavigationUIModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/start_training_container"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_5sdp"
+        android:weightSum="1.5"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_2sdp"
+        android:paddingRight="@dimen/_2sdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:setNavigationImageResource="@{adapterItem.iconResId}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:layout_gravity="center"
+            android:text="@{adapterItem.bottomTxt}"
+            android:textColor="@color/textColorBlackBold"
+            android:textSize="@dimen/_10ssp" />
+
+    </LinearLayout>
+</layout>

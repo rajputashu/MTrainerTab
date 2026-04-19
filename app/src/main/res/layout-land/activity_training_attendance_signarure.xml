@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.attendancemodule.TrainingAttendanceSignatureViewModel"/>
+           <import type="android.view.View"/>
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorLightGrey"
+
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardviewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorBlackBold"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:id="@+id/user_name"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Manish"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign"
+            android:text="Signature Here"
+
+            android:textColor="@color/textColorBlackBold"
+            android:layout_below="@+id/CardviewName"
+            android:textSize="@dimen/_15ssp"
+           android:gravity="center"/>
+
+        <com.droidcommons.views.ink.InkView
+            android:id="@+id/inkSignature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+
+            android:layout_below="@+id/sign"
+            app:addInkListeners="@{vm.listener}"
+            app:inkFlags="interpolation|responsiveWeight" />
+<!--
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:backgroundTint="@color/colorTextGrey"
+            android:background="@drawable/ic_round_circle"
+
+            android:onClick="@{()->vm.onInkViewClear(inkSignature)}"
+            android:padding="@dimen/_8sdp"
+            android:visibility="@{vm.isSigned}"
+            app:srcCompat="@drawable/ic_clear" />
+-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+
+            android:background="@color/colorLightRed"
+            android:onClick="@{()->vm.onAddSignatureContinue(inkSignature)}"
+            android:text="save"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_40sdp"
+            android:onClick="@{()->vm.onInkViewClear(inkSignature)}"
+            android:visibility="@{vm.isSigned}"
+            android:layout_marginBottom="@dimen/_10sdp"
+
+            android:background="@color/colorLightRed"
+            android:text="clear"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+
+    </RelativeLayout>
+
+</layout>

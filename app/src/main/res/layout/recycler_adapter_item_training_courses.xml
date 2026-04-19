@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.trainingcourses.TrainingCoursesViewmodel" />
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingCoursesDataResponse" />
+
+    </data>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+
+              <androidx.cardview.widget.CardView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  app:cardBackgroundColor="#F7F7F7"
+                  android:layout_marginStart="@dimen/_15sdp"
+                  android:layout_marginTop="@dimen/_5sdp"
+                  android:layout_marginEnd="@dimen/_15sdp"
+                  android:layout_marginBottom="@dimen/_5sdp"
+                  app:cardCornerRadius="@dimen/_8sdp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:layout_marginTop="10dp"
+                   android:paddingLeft="20dp"
+                   android:paddingRight="20dp"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="20dp"
+                   >
+                   <androidx.appcompat.widget.LinearLayoutCompat
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.AppCompatImageView
+                           android:layout_width="80dp"
+                           android:layout_height="70dp"
+                           android:id="@+id/imvCourseimg"
+                           android:src="@android:drawable/alert_dark_frame"
+                           android:ellipsize="end"
+                           android:textSize="@dimen/_14ssp"
+                           android:textStyle="bold"
+                           android:scaleType="fitXY"/>
+
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           android:layout_marginRight="@dimen/_5sdp"
+                           android:layout_marginLeft="@dimen/_5sdp"
+                           android:layout_weight="1">
+
+                           <androidx.appcompat.widget.LinearLayoutCompat
+                               android:layout_width="wrap_content"
+                               android:layout_gravity="center"
+                               android:orientation="vertical"
+                               android:layout_marginEnd="@dimen/_11sdp"
+                               android:layout_height="wrap_content">
+
+                               <androidx.appcompat.widget.AppCompatTextView
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:text="@{adapterItem.courseTitle}"
+                                   android:textColor="#75859d"
+                                   android:textSize="@dimen/_14ssp"
+                                   android:textStyle="bold"
+                                   android:layout_marginTop="10dp"
+                                  />
+
+                               <androidx.appcompat.widget.AppCompatTextView
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:textColor="#75859d"
+                                   android:id="@+id/tv_duration"
+                                   android:textSize="@dimen/_10ssp" />
+
+                           </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                       </LinearLayout>
+
+                       <ImageView
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_gravity="center_vertical"
+                           android:background="@drawable/arrow_forward"
+                          />
+
+                       <!-- this screen for cancel training-->
+                       <!--end here-->
+
+                       <!--this below one for completed training showing -->
+
+                   </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+               </LinearLayout>
+
+
+              </androidx.cardview.widget.CardView>
+
+
+
+          </LinearLayout>
+
+
+
+
+
+
+</layout>
+
+<!--<TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Not started yet"
+                       android:textSize="14dp"
+                       android:layout_gravity="end"
+                      />
+-->

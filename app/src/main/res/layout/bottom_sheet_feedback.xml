@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.FeedbackActivityViewModel" />
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_top_corner">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUserLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_130sdp"
+        android:layout_marginRight="@dimen/_130sdp"
+        android:background="@color/colorTextGrey"
+        android:gravity="center" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:backgroundTint="@color/Grey"
+            android:background="@drawable/ic_round_circle"
+            android:padding="@dimen/_8sdp"
+            app:srcCompat="@drawable/ic_clear" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:text="Client Representative Details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"/>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_14sdp"
+            app:boxStrokeColor="@color/outlineBorderTrans"
+            app:hintTextColor="@color/colorTextGrey"
+            android:hint="Name"
+            android:textColorHint="@color/colorTextGrey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_14sdp"
+            app:boxStrokeColor="@color/outlineBorderTrans"
+            app:hintTextColor="@color/colorTextGrey"
+            android:hint="Email ID"
+            android:textColorHint="@color/colorTextGrey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_14sdp"
+            app:boxStrokeColor="@color/outlineBorderTrans"
+            app:hintTextColor="@color/colorTextGrey"
+            android:hint="Phone"
+            android:textColorHint="@color/colorTextGrey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

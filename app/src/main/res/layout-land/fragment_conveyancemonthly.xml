@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.myconveyance.MyConveyanceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Daily Conveyance"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_height="wrap_content"/>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginBottom="1.5dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:singleLine="false"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Trainer Name"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:singleLine="false"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Employee No"/>
+                    <!--<androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="100dp"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:singleLine="false"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Year"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="100dp"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:singleLine="false"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Month"/>-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:singleLine="false"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Day"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:singleLine="false"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Date"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:singleLine="false"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Total Task"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:singleLine="false"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Total Distance"/>
+
+                    <!--
+                                            <androidx.appcompat.widget.AppCompatTextView
+                                                android:layout_width="180dp"
+                                                android:layout_marginLeft="@dimen/_1sdp"
+                                                android:textAlignment="center"
+                                                android:singleLine="false"
+                                                android:layout_marginEnd="@dimen/_1sdp"
+                                                android:layout_height="@dimen/_15sdp"
+                                                android:gravity="center"
+                                                android:background="@drawable/button_white_border"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/_8ssp"
+                                                android:text="Van Training KM"/>
+                    -->
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:textAlignment="center"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:singleLine="false"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Other Deduction"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_marginLeft="@dimen/_1sdp"
+                        android:id="@+id/onclick"
+                        android:textAlignment="center"
+                        android:singleLine="false"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:background="@drawable/button_white_border"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="Action"/>
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+                    <!--  android:background="@color/lighter_grey"-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_Calendar_Rota"
+                        app:setmyconvencedailylistener="@{vm.dailylisteners}"
+                        app:setmyconvenecedailyadapter="@{vm.dialyRecyclerAdapter}">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <!--
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/tv_No_Rota"
+                                    android:textSize="@dimen/_8ssp"
+                                    android:text="Data not Found"
+                                    android:background="@color/lighter_grey"
+                                    android:gravity="center"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"/>
+                    -->
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_gravity="center"
+            android:visibility="@{vm.isLoading}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

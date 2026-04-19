@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.ConveyanceTimeLineData" />
+        <import type="android.view.View"/>
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/_9sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="1.5dp"
+            android:layout_marginBottom="1.5dp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@{adapterItem.task}"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_weight="0.8"
+                android:textAlignment="center"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@{adapterItem.taskStartTime}"/>
+            <!-- <androidx.appcompat.widget.AppCompatTextView
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_marginLeft="@dimen/_1sdp"
+                 android:layout_weight="0.6"
+                 android:textAlignment="center"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_5ssp"
+                 android:text="@{String.valueOf(adapterItem.year)}"/>
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_marginLeft="@dimen/_1sdp"
+                 android:layout_weight="0.8"
+                 android:textAlignment="center"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_5ssp"
+                 android:text="@{String.valueOf(adapterItem.monthName)}"/>-->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_weight="0.8"
+                android:textAlignment="center"
+                android:id="@+id/tvpresentdayaname"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:id="@+id/tvsitename"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_weight="0.8"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@{String.valueOf(adapterItem.distanceKM)}"/>
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_weight="0.8"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@{String.valueOf(adapterItem.deductReason)}"/>-->
+
+            <!--
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_5ssp"
+                            android:text="@{String.valueOf(adapterItem.vanTrainingKM)}"/>
+            -->
+
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

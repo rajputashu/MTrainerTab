@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+
+                tools:ignore="ContentDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/module_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#80000000"
+                android:padding="15dp"
+                android:text="Basics of security"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/header_curriculum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#a6a5a5">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="CURRICULUM"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:ignore="HardcodedText,SpUsage" />
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/drawable_background_3d"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/sis"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

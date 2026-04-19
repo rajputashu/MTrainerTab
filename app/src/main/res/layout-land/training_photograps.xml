@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="imagePath"
+            type="String" />
+    </data>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_3sdp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="@dimen/_5sdp"
+            android:layout_marginBottom="-1dp"
+            android:layout_marginTop="-15dp"
+            app:cardCornerRadius="@dimen/_5sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:textSize="@dimen/_5ssp"
+                android:id="@+id/image_type"
+                android:text="Training"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:visibility="visible"
+                android:id="@+id/remove_view"
+                android:src="@drawable/ic_clear"
+                android:background="@drawable/ic_round_circle"
+                android:layout_gravity="top|end"/>
+            <com.droidcommons.views.roundedimageview.RoundedImageView
+                android:layout_width="@dimen/_45sdp"
+                android:id="@+id/image_photo"
+                android:layout_marginBottom="-5dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:riv_corner_radius="@dimen/_5sdp"
+                android:layout_height="@dimen/_42sdp"/>
+            <!--setImageFromPath="@{imagePath}"-->
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</layout>
+
+

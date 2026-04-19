@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="textItem"
+            type="com.sisindia.ai.mtrainer.android.models.ContactListResponse.ClientData" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroudGray"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/feedback_item_container">
+            <RadioButton
+                android:id="@+id/feedback_radio_btn"
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:text="@{textItem.clientName}"
+                android:textColor="@color/black"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <!-- android:text="@{textItem}"-->
+
+</layout>
+

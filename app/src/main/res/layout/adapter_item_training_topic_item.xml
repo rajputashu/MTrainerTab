@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="listRecyclerAdapter"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.TrainingTopicListRecyclerAdapter" />
+    </data>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@color/darkTransparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivThumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/top_rounded_transparent"/>
+
+                <LinearLayout
+                    android:layout_below="@id/ivThumbnail"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="?actionBarSize">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="@string/training_entry_post" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/colorTextGrey"
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/_12ssp"
+                            android:text="@string/_18_feb_2020" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:setTrainingTopicListRecyclerAdapter="@{listRecyclerAdapter}" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+</layout>

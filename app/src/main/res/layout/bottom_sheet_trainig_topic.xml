@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.TrainingTopicsViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUserLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_0sdp"
+            app:cardBackgroundColor="@color/darkTransparent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/trained_by_manish_trainer" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/cacelBottomsomSheet"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/ic_round_circle"
+                        android:tint="@color/black"
+                        android:backgroundTint="@color/colorWhite"
+                        android:layout_centerVertical="true"
+                        app:srcCompat="@drawable/ic_clear" />
+                </RelativeLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_previous_training"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    app:setTopicItemViewListeners="@{vm.viewListeners}"
+                    app:setTopicItemViewPagerAdapter="@{vm.topicItemViewPagerAdapter}" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

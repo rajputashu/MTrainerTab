@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.sisindia.ai.mtrainer.android.utils.StringUtils"/>
+        <variable
+            name="item"
+            type="com.sisindia.ai.mtrainer.android.features.umbrellareport.model.UmbrellaImageRvItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_100sdp"
+            android:id="@+id/umbrella_image"
+            android:layout_height="@dimen/_100sdp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:gravity="start"
+            android:layout_gravity="center_horizontal"
+            android:text="@{item.postName}"
+            android:textColor="@color/textColorBlackBold"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,7 @@
+com.toptoche.searchablespinnerlibrary
+attr hintText
+id listItems
+id search
+layout searchable_list_dialog
+string app_name
+styleable SearchableSpinner hintText

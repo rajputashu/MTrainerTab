@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!--&lt;!&ndash;<domain includeSubdomains="true">192.168.2.129</domain>&ndash;&gt;-->
+        <!--<domain includeSubdomains="true">qa435chat.medlife.com</domain>-->
+        <!--<domain includeSubdomains="true">chat.eclinic247.com</domain>-->
+        <domain includeSubdomains="true">mtrainerapi.sisindia.com</domain>
+        <domain includeSubdomains="true">mtrainerapi.sisindia.com:8080</domain>
+        <domain includeSubdomains="true">mtrainer2-uat.azurewebsites.net</domain>
+    </domain-config>
+  <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

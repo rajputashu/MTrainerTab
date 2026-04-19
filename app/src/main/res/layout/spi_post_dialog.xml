@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.spi.basicinformation.BasicInformationViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="Posts"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:backgroundTint="@color/Grey"
+                    android:background="@drawable/ic_round_circle"
+                    android:padding="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_clear"
+                    android:id="@+id/close_btn"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    spiPostRecyclerAdapter="@{vm.postDialogAdapter}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{vm.isLoading}" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.spi.SpiViewModel" />
+        <import type="android.view.View"/>
+        <variable
+            name="csat"
+            type="com.sisindia.ai.mtrainer.android.models.CsatOycCountResponse.CsatOycCountData" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/ll_header"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+
+            android:orientation="horizontal"
+            android:background="@drawable/rectangle_corner_grey">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:background="@drawable/rectangle_button"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:text="Branch :"
+                    android:textSize="@dimen/_8ssp"/>
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:id="@+id/sp_branch_name"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textAlignment="textStart"
+                    spibranchEntries="@{vm.branchList}"
+                    setSpiSpinnerItemSelector="@{vm.viewListeners}"
+                    android:textSize="@dimen/_8ssp"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:textAlignment="center"
+                    android:singleLine="false"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="@{vm.oyc}"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:singleLine="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="OYC Sites Completed"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:singleLine="false"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="@{vm.csat}"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:singleLine="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    android:text="CSAT Sites Completed"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/rectangle_squre_corner"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginLeft="@dimen/_4sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginTop="0.5dp"
+                android:layout_marginBottom="0.5dp"
+                android:weightSum="8"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight=".4"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:singleLine="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="Sr"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.6"
+                    android:textAlignment="center"
+                    android:singleLine="false"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="Customer"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:singleLine="false"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="Customercode"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1.5"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="Branch"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:text="Type"
+                    android:textSize="@dimen/_7ssp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:text="Status"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".9"
+                    android:text="LastUpdated"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".8"
+                    android:text="View"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_Calendar_Rota"
+            app:mySpiViewListener="@{vm.viewListeners1}"
+            app:setSitePostRecyclerAdapter="@{vm.sitePostAdapter}"
+            android:background="@color/white">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_No_Spi"
+            android:textSize="@dimen/_8ssp"
+            android:text="Data not Found"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

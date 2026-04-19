@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.addrota.AddRotaViewmodel" />
+
+        <import type="com.sisindia.ai.mtrainer.android.utils.TimeUtils" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/appbar1"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTakeAttendance"
+                android:layout_width="match_parent"
+                app:title=" "
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="snap" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:text="@string/add_training_rota"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveTask"
+            style="@style/RedButtonStyle"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/_12ssp"
+            android:layout_height="?actionBarSize"
+            android:onClick="@{vm::saveTaskClick}"
+            android:text="save task" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbar1"
+            android:layout_above="@+id/btnSaveTask"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?actionBarSize"
+                android:layout_below="@+id/appbar1"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative1">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_region_name"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textColor="@color/colorTextGrey"
+                        regionEntries="@{vm.regionList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative2">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_branch_name"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        branchEntries="@{vm.branchList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative3">
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        app:hintText="Select Site"
+                        android:id="@+id/sp_unit_name3"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        siteEntries="@{vm.siteList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:orientation="horizontal"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.VISIBLE : View.GONE}"
+                    android:weightSum="2"
+                    android:id="@+id/relative">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSelectUnitTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_weight="1"
+                        android:textColor="@color/textColorBlackBold"
+                        android:text="Unit Name"
+                        android:textSize="@dimen/_7ssp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end">
+
+                        <com.jaiselrahman.hintspinner.HintSpinner
+                            android:id="@+id/sp_unit_name"
+                            setSpinnerItemSelector="@{vm.viewListeners}"
+                            typeEntries="@{vm.typeList}"
+                            unitEntries="@{vm.unitList}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/tvSelectUnitTitle"
+                            android:gravity="end"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/colorTextGrey"
+                            android:textSize="@dimen/_7ssp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_site_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:text="@{vm.selectedSiteAddress.equals(``) ? `` : vm.selectedSiteAddress}"
+                    android:visibility="@{vm.selectedSiteAddress.equals(``) ? View.GONE : View.VISIBLE}"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_6ssp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_emp_count_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Employee at Site :"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_emp_count"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tv_emp_count_header"
+                        android:textColor="@{vm.empCount == 0 ? @color/red : @color/textColorBlackBold}"
+                        android:text="@{vm.empCount == -1 ? `NA` : String.valueOf(vm.empCount)}"
+                        android:textAlignment="textEnd"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_14ssp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:id="@+id/add_rota_training_type_container">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_training_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Training Type"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_training_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        typeEntries="@{vm.typeList}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:layout_toEndOf="@id/tv_training_type"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.companyId.equals(`1`) || vm.companyId.equals(`4`) || vm.companyId.equals(`8`)  ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/training_counduct_type_container">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_training_counduct_type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        trainingConductType="@{1}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_14ssp"/>
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStartDateForCreateTask"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Start date"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/add_rota_start_date"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvStartDateForCreateTask"
+                        android:text="@{TimeUtils.TASK_DATE_FORMAT(vm.startDate)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp"
+                        app:setCreateTaskDatePicker="@{vm.startDate}"
+                        app:viewListeners="@{vm.viewListeners}" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@color/colorLightWhite" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rlReason"
+                    android:visibility="@{vm.isReasonAvailable}"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSelectReasonTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Reason"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        android:layout_toEndOf="@id/tvSelectReasonTitle"
+                        android:text="Select reason"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStartTimeForCreateTask"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Start time"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStartTimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvStartTimeForCreateTask"
+                        android:text="@{TimeUtils.TASK_TIME_FORMAT(vm.taskStartTime)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp"
+                        app:setCreateTaskStartTimePicker="@{vm.taskStartTime}"
+                        app:viewListeners="@{vm.viewListeners}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvStartTimeValue"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:text="* Start time must be greater than current time"
+                        android:textColor="@color/colorLightRed"
+                        android:textSize="@dimen/_7ssp"
+                        android:visibility="@{vm.taskStartTimeErrorVisibility}" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:alpha="0.3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvEndDateForCreateTask"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="End date"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/add_rota_end_date"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvEndDateForCreateTask"
+                        android:text="@{TimeUtils.TASK_DATE_FORMAT(vm.endDate)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp"
+                        />
+                    <!-- app:setCreateTaskDatePicker="@{vm.endDate}"
+                     app:viewListeners="@{vm.viewListeners}"-->
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvEndTimeForCreateTask"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="End time"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvEndTimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvEndTimeForCreateTask"
+                        android:text="@{TimeUtils.TASK_TIME_FORMAT(vm.taskEndTime)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_7ssp"
+                        app:setCreateTaskEndTimePicker="@{vm.taskEndTime}"
+                        app:viewListeners="@{vm.viewListeners}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvEndTimeValue"
+                        android:layout_alignParentEnd="true"
+                        android:text="End time should be greater"
+                        android:textColor="@color/colorLightRed"
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="@{vm.taskEndTimeErrorVisibility}" />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorLightWhite" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rlTopic"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSelectTopic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{`Select topic (` + vm.topicCount + `)`}"
+                        android:textStyle="bold"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_7ssp" />
+                    <androidx.appcompat.widget.SearchView
+                        rxListener="@{vm.stringObservable}"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        app:iconifiedByDefault="false"
+                        app:queryHint="Search Topic"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:setRotaTopicAdapter="@{vm.topicsAdapter}"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{vm.isLoading}" />
+
+    </RelativeLayout>
+</layout>

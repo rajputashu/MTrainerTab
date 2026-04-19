@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.trainingkit.TrainingKitViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <!--
+
+                <include
+                    android:id="@+id/trainer_picture_toolbar"
+                    layout="@layout/app_toolbar" />
+
+
+        -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/toolBarBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/ic_tab_back" />
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/ic_mtrainer_white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolBarBackButton"
+            android:background="@color/colorWhite"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_50sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_8sdp">
+
+                    <RelativeLayout
+                        android:id="@+id/title_relative"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:visibility="visible"
+                        android:background="@drawable/rectangle_border">
+
+                        <SearchView
+                            android:id="@+id/searchTrainingKitView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:queryHint="SEARCH COURSE" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/videos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_15sdp"
+                            android:textSize="@dimen/_8ssp"
+                            android:text="Videos"
+                            android:textColor="#0033cc"
+                            android:layout_marginLeft="@dimen/_40sdp"
+                            android:textAllCaps="true"
+                            android:visibility="visible" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/presentation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_8ssp"
+                            android:layout_toEndOf="@id/videos"
+                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="@dimen/_60sdp"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:paddingTop="@dimen/_15sdp"
+                            android:text="presentations"
+                            android:textAllCaps="true"
+                            android:textColor="#0033cc"
+                            tools:ignore="RelativeOverlap,RtlSymmetry" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_8ssp"
+                            android:layout_marginLeft="@dimen/_40sdp"
+                            android:layout_toEndOf="@id/presentation"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:paddingTop="@dimen/_15sdp"
+                            android:text="sector sop(10)"
+                            android:textAllCaps="true"
+                            android:textColor="#0033cc"
+                            tools:ignore="RelativeOverlap,RtlSymmetry" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mlcvideos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_8ssp"
+                            android:layout_marginLeft="@dimen/_40sdp"
+                            android:layout_toEndOf="@id/sop"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:paddingTop="@dimen/_15sdp"
+                            android:text="MLC Videos"
+                            android:textAllCaps="true"
+                            android:textColor="#0033cc"
+                            tools:ignore="RelativeOverlap,RtlSymmetry" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:id="@+id/alphabet_filter"
+                            android:layout_marginTop="@dimen/_14sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_alphabetical_sorting_a_z"
+                            tools:ignore="ContentDescription" />
+                    </RelativeLayout>
+
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/refreshVideos"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="@dimen/_160sdp">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/trainingKitRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_160sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_8sdp" />
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer_text"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"
+
+            android:focusable="true"
+            android:id="@+id/reset_layout"
+            android:background="#bfbfbf">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/synced_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:padding="@dimen/_5sdp"
+                android:textAllCaps="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="@dimen/_6ssp"
+                android:text="Last synced 24/7/2017 \n3 new content available for update"
+                android:textColor="@android:color/black"
+                tools:ignore="HardcodedText,InefficientWeight"
+                tools:targetApi="m" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/reset_layout1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_refresh_black_24dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorWhite"
+            android:gravity="center_horizontal"
+            android:text="Security  Intelligence Services(India) Ltd"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_8ssp" />
+
+    </RelativeLayout>
+</layout>

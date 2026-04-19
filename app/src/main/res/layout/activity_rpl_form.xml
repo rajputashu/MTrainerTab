@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.rplform.RplFormViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollrpl"
+            android:layout_marginTop="@dimen/_5sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RPL FORM "
+                    android:textColor="@color/greyBlack"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:background="@drawable/rectangle_border"
+                    android:id="@+id/rpl_form"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rpl_form"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/rectangle_border">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/reg_layout">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="REGISTRATION NUMBER "
+                            android:layout_margin="@dimen/_10sdp"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/greyBlack"
+                            android:padding="@dimen/_5sdp"
+                            android:id="@+id/regno"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_border"
+                            android:layout_toRightOf="@id/regno"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:text="@={vm.regno}"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:padding="@dimen/_5sdp"
+                            android:id="@+id/regno_edt"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/registrationNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_below="@+id/regno"
+                            android:background="@drawable/rectangle_border"
+                            android:hint="ENTER NAME"
+                            android:text="@{vm.employeeName}"
+                            android:inputType="textPersonName"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:textAlignment="textStart"
+                            android:maxLines="1"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="@dimen/_1sdp"
+                            android:paddingTop="2dp"
+                            android:textAllCaps="true"
+                            android:textSize="@dimen/_8ssp" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_210sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_below="@+id/reg_layout"
+                        android:id="@+id/align1"
+                        android:background="@drawable/rectangle_border"
+                        android:padding="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_250sdp"
+                                android:layout_weight="1"
+                                android:layout_marginRight="@dimen/_2sdp"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/aadharFrontPhotoPreview"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_170sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_camera" />
+                                <!--
+
+                                                            <androidx.camera.view.PreviewView
+                                                                android:layout_width="match_parent"
+                                                                android:id="@+id/imagePreview"
+                                                                android:layout_weight=".6"
+                                                                android:layout_height="0dp"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:layout_width="match_parent"
+                                                                    android:id="@+id/aadharFrontPhotoPreview"
+                                                                    android:src="@drawable/ic_camera"
+                                                                    android:layout_weight=".6"
+                                                                    android:layout_height="0dp"
+                                                                    android:layout_gravity="center"/>
+
+
+                                                            </androidx.camera.view.PreviewView>
+                                -->
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/frontViewPhotoButton"
+                                    android:layout_width="@dimen/_140sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:gravity="center"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_1sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rectangle_button"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:paddingLeft="@dimen/_20sdp"
+                                    android:paddingRight="@dimen/_20sdp"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:text="AADHAR FRONT VIEW PHOTO" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_250sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/aadharBackPhotoPreview"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_170sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/backViewPhotoButton"
+                                    android:layout_width="@dimen/_140sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:gravity="center"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_1sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rectangle_button"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:paddingLeft="@dimen/_20sdp"
+                                    android:paddingRight="@dimen/_20sdp"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:text="AADHAR BACK VIEW PHOTO" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:layout_below="@+id/align1"
+                        android:visibility="gone"
+                        android:id="@+id/align2"
+                        android:background="@drawable/rectangle_border"
+                        android:padding="@dimen/_5sdp">
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/reg_layout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/align2"
+                        android:layout_marginTop="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/unitname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:text="UNIT NAME "
+                            android:textColor="@color/greyBlack"
+                            android:textSize="@dimen/_8ssp" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_75sdp"
+                            android:layout_alignParentRight="true"
+                            android:text="@{vm.unitNameEdit}"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/unitname"
+                            android:background="@drawable/rectangle_border"
+                            android:id="@+id/unitNameEdit"
+                            android:padding="@dimen/_8sdp" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reg_layout3"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/reg_layout4">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BRANCH NAME "
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/greyBlack"
+                            android:padding="@dimen/_10sdp"
+                            android:id="@+id/branchname"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_border"
+                            android:layout_toRightOf="@id/branchname"
+                            android:text="@{vm.branchNameEdit}"
+                            android:layout_marginLeft="@dimen/_62sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/branchNameEdit"
+                            android:padding="@dimen/_8sdp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reg_layout4"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/reg_layout5">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MOBILE NUMBER "
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/greyBlack"
+                            android:padding="@dimen/_10sdp"
+                            android:id="@+id/mobileno"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_border"
+                            android:layout_toRightOf="@id/mobileno"
+                            android:layout_marginLeft="@dimen/_58sdp"
+                            android:layout_centerVertical="true"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:id="@+id/mob_numberedt"
+                            android:padding="@dimen/_8sdp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reg_layout5"
+
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/reg_layout6">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EDUCATIONAL QUALIFICATION "
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/greyBlack"
+                            android:padding="@dimen/_10sdp"
+                            android:id="@+id/edquaf"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_border"
+                            android:layout_toRightOf="@id/edquaf"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/eductn_qualifaction"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:padding="@dimen/_8sdp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reg_layout6"
+                        android:id="@+id/reg_layout7">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CATEGORY "
+                            android:textSize="@dimen/_8ssp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:textColor="@color/greyBlack"
+                            android:padding="@dimen/_10sdp"
+                            android:id="@+id/category"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_8sdp"
+                            android:id="@+id/spinner_client_contact"
+                            android:layout_toRightOf="@+id/category"
+                            android:layout_marginLeft="@dimen/_65sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_centerVertical="true">
+                        </androidx.appcompat.widget.AppCompatSpinner>
+                    </RelativeLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/submitRplForm"
+                        android:layout_below="@+id/reg_layout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/colorOrange"
+                        android:text="SUBMIT FORM"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10ssp" />
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+            </RelativeLayout>
+        </ScrollView>
+        <!--
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@{vm.toString()}" />-->
+    </LinearLayout>
+</layout>

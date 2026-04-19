@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/mainlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/actMain_ll_device_ctrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selected Device :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#250234"
+                    android:textStyle="italic|normal" />
+
+                <TextView
+                    android:id="@+id/actMain_tv_device_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="%1$s\n%2$s\"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#250234" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/actMain_btn_pair"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_border"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClickBtnPair"
+                android:text="Pair"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/actMain_btn_conn"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_border"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"
+                android:onClick="onClickBtnConn"
+                android:layout_gravity="center_horizontal"
+                android:text="Connect"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

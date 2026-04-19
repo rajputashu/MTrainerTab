@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.online.TrainingCourseDataResponseMO" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:imageUrl="@{adapterItem.courseThumbnailURL}"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@drawable/bg_white_overlay">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{adapterItem.courseTitle}"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666666"
+                    android:text="@{`Duration: `+adapterItem.courseDuration}"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

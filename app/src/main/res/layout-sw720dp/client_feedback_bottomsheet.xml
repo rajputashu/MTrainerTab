@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.FeedbackBottomSheetViewModel" />
+
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_top_corner">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUserLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/colorWhite">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_130sdp"
+                    android:layout_marginRight="@dimen/_130sdp"
+                    android:background="@color/colorTextGrey"
+                    android:gravity="center" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:backgroundTint="@color/Grey"
+                    android:background="@drawable/ic_round_circle"
+                    android:padding="@dimen/_4sdp"
+                    app:srcCompat="@drawable/ic_clear"
+                    android:id="@+id/exit_client_feedback"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:text="Client Representative Details"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"/>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:boxStrokeColor="@color/outlineBorderTrans"
+                    app:hintTextColor="@color/colorTextGrey"
+                    android:hint="Name"
+                    android:textColorHint="@color/colorTextGrey">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/feedback_input_name"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    app:boxStrokeColor="@color/outlineBorderTrans"
+                    app:hintTextColor="@color/colorTextGrey"
+                    android:hint="Email ID"
+                    android:textColorHint="@color/colorTextGrey">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/feedback_input_email"
+                        android:inputType="textEmailAddress"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:boxStrokeColor="@color/outlineBorderTrans"
+                    app:hintTextColor="@color/colorTextGrey"
+                    android:hint="Phone"
+                    android:visibility="@{vm.companyID.equals(`2`)||vm.companyID.equals(`7`)||vm.companyID.equals(`9`) ? View.VISIBLE : View.GONE }"
+                    android:textColorHint="@color/colorTextGrey">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:id="@+id/feedback_input_number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:fabSize="normal"
+                    app:tint="@color/colorWhite"
+                    app:srcCompat="@drawable/ic_arrow_forward"
+                    android:backgroundTint="@color/red"
+                    android:id="@+id/ca_fab_btn"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

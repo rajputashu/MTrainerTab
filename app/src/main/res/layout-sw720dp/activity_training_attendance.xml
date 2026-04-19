@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.sisindia.ai.mtrainer.android.features.attendancemodule.TrainingAttendanceRecyclerAdapter" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.attendancemodule.TrainingAttendanceViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTakeAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="snap"
+                app:title=" ">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Attendance"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <include
+                android:id="@+id/includeTimeSpent"
+                layout="@layout/include_layout_time_spent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_alignParentTop="true" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llsearchAttendence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/includeTimeSpent"
+                android:layout_marginTop="-2dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginRight="@dimen/_16sdp"
+                        android:layout_weight="1.5"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchName"
+                            queryListener="@{vm.onQueryListener}"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25ssp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/search_border"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:textColor="@color/colorTextGrey"
+                            android:textColorHint="@color/colorTextGrey"
+                            app:iconifiedByDefault="false"
+                            app:queryHint="@string/search_participant_name" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_25ssp"
+                            android:layout_height="@dimen/_25ssp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/scan_background"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@drawable/ic_add_white"
+                                android:text="Add"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_10sdp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/scan_background"
+                            android:gravity="center"
+                            android:onClick="@{vm::openBarcodeScreen}"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableTop="@drawable/ic_scan"
+                                android:text="@string/scan"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_7sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/post_container"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_14sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:animationCache="true"
+                            android:scrollbars="horizontal"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:singleLine="true"
+                            app:singleSelection="true"></com.google.android.material.chip.ChipGroup>
+                    </HorizontalScrollView>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:text="Name"
+                        android:textColor="@color/colorTextGrey"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/totalCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_weight=".8"
+                        android:text="@{vm.total}"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorTextGrey"
+                        android:textSize="@dimen/_8ssp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/llsearchAttendence"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/flButtonTraining"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                    app:setTrainingAttendanceRecyclerAdapter="@{vm.trainingattendanceAdapter}" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/flButtonTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/_16sdp"
+            app:backgroundTint="@color/red"
+            app:layout_anchorGravity="bottom|right|end"
+            app:srcCompat="@drawable/ic_arrow_forward"
+            app:tint="@color/colorWhite" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

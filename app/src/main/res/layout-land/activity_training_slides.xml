@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:id="@+id/fragment_slide_trainingkit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Grey">
+
+        <LinearLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include layout="@layout/app_toolbar" />
+        </LinearLayout>
+
+
+
+        <WebView
+            android:id="@+id/leave_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/footer_text"
+            android:layout_below="@id/toolbar_layout"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leave_left"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|left"
+            android:src="@drawable/ic_keyboard_arrow_left_yellow_800_48dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leave_right"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/ic_keyboard_arrow_right_yellow_800_48dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/slide_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer_text"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/_5sdp"
+            android:background="#80000000"
+            android:text="1 OF 24 SLIDES"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/course_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_layout"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_15sdp"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:background="#80000000"
+            android:text="Basic Skills for security operation"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorWhite"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/sis"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+</layout>

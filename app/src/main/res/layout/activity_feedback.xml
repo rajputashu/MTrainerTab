@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.feedback.FeedbackActivityViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTakeFeedback"
+                android:layout_width="match_parent"
+                app:title=" "
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="snap" >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_gravity="center"
+                    android:text="Client Feedback"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize">
+
+            <include
+
+                android:id="@+id/includeTimeSpent"
+                layout="@layout/include_layout_time_spent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_alignParentTop="true" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/includeTimeSpent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/feedback_fragment_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/savedTrainningDetailContainer">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_10sdp">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginLeft="@dimen/_12sdp"
+                                android:layout_marginRight="@dimen/_12sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? 2 : 3}">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:weightSum="2">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_2sdp"
+                                        android:layout_marginTop="@dimen/_2sdp"
+                                        android:textSize="@dimen/_7ssp"
+                                        android:layout_weight="1"
+                                        android:id="@+id/attendence_summary"
+                                        android:text="@{vm.selectedEmployee + `/` + vm.totalEmployee}"
+                                        android:textColor="@color/textColorBlackBold"
+                                        android:textStyle="bold" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="Attendance"
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_8ssp" />
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <View
+                                    android:layout_width="@dimen/_1sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorLightGrey" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_12sdp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:weightSum="2"
+                                    android:visibility="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? View.GONE : View.VISIBLE}">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="@dimen/_7ssp"
+                                        android:layout_marginBottom="@dimen/_2sdp"
+                                        android:layout_marginTop="@dimen/_2sdp"
+                                        android:id="@+id/post_summary"
+                                        android:layout_weight="1"
+                                        android:text="@{vm.selectedPost + `/` + vm.totalPost}"
+
+                                        android:textColor="@color/textColorBlackBold"
+                                        android:textStyle="bold" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="posts"
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_8ssp" />
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <View
+                                    android:layout_width="@dimen/_1sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorLightGrey"
+                                    android:visibility="@{vm.companyID.equals(`1`) || vm.companyID.equals(`4`) || vm.companyID.equals(`8`) ? View.GONE : View.VISIBLE}"/>
+                                >
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_12sdp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:weightSum="2">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_2sdp"
+                                        android:layout_marginTop="@dimen/_2sdp"
+                                        android:textSize="@dimen/_7ssp"
+                                        android:layout_weight="1"
+                                        android:id="@+id/topic_summary"
+                                        android:text="@{String.valueOf(vm.selectedTopic+vm.selectedAdhocTopic)+ `/` + vm.totalTopic}"
+                                        android:textColor="@color/textColorBlackBold"
+                                        android:textStyle="bold" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_6sdp"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="Topics"
+                                        android:textColor="@color/colorTextGrey"
+                                        android:textSize="@dimen/_8ssp" />
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_131sdp"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="Training Coverage - 06"
+                                android:textColor="@color/textColorBlackBold"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/feedback_activity_fab"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_8sdp"
+            app:fabSize="normal"
+            app:tint="@color/colorWhite"
+            app:srcCompat="@drawable/ic_arrow_forward"
+
+            android:backgroundTint="@color/red" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

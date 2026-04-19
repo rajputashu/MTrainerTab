@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="topicsCoveredRecyclerAdapter"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.CoveredTopicsRecyclerAdapter" />
+
+        <variable
+            name="topicItemRecyclerAdapter"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.TopicItemRecyclerAdapter" />
+
+        <variable
+            name="viewListeners"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.PreTrainingViewListeners" />
+
+        <variable
+            name="item"
+            type="com.sisindia.ai.mtrainer.android.models.previous.DataItem" />
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.date}"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:textColor="@color/textColorBlackBold"
+            android:textSize="@dimen/_8ssp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/colorWindowBackGround"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp"
+                    android:background="@drawable/top_rounded_drawable">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:text="@{`Trained by ` + item.trainerName + ` ` + item.trainingHours + `hrs`}"
+                        android:textColor="@color/colorWhite" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_van"
+                        app:tint="@color/colorWhite" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTopicsCoveredHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{`Topics Covered ` + `(` + String.valueOf(item.totalTopic) + `)`}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_toLeftOf="@id/tvStarRating"
+                        android:visibility="@{item.rating.equals(`0/0`) ? View.GONE : View.VISIBLE}"
+                        app:srcCompat="@drawable/ic_orange_start" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStarRating"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/full_rounded_drawable"
+                        android:gravity="center"
+                        android:text="@{item.rating}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_7ssp"
+                        android:visibility="@{item.rating.equals(`0/0`) ? View.GONE : View.VISIBLE}"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_gravity="center"
+                    app:setTopicsCoveredRecyclerAdapter1="@{topicsCoveredRecyclerAdapter}" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="@dimen/_10sdp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:layout_gravity="center"
+                        app:setTopicsItemRecyclerAdapter="@{topicItemRecyclerAdapter}"
+                        app:setViewListeners="@{viewListeners}" />
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

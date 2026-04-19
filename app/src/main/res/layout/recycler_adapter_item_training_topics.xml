@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.topicslist.TrainingTopicsViewmodel" />
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.models.TrainingTopicsDataModel" />
+
+    </data>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#F7F7F7"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                >
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:paddingTop="10dp"
+                  android:paddingBottom="10dp"
+                  android:paddingRight="20dp"
+                  android:paddingLeft="20dp">
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+                      <androidx.appcompat.widget.AppCompatImageView
+                          android:layout_width="80dp"
+                          android:layout_height="70dp"
+                          android:src="@android:drawable/alert_dark_frame"
+                          android:id="@+id/imvTopicimg"
+                          android:ellipsize="end"
+                          android:layout_gravity="center"
+                          android:textSize="@dimen/_14ssp"
+                          android:textStyle="bold"
+                          android:scaleType="fitXY"/>
+
+                      <LinearLayout
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginRight="@dimen/_5sdp"
+                          android:orientation="vertical"
+                          android:layout_gravity="center"
+                          android:layout_marginLeft="@dimen/_5sdp"
+                          android:layout_weight="1">
+                          <androidx.appcompat.widget.AppCompatTextView
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:text="@{adapterItem.courseTopicTitle}"
+                              android:textColor="#75859d"
+                              android:textSize="@dimen/_14ssp"
+                              android:layout_marginTop="10dp"
+                              android:textStyle="bold" />
+
+                          <androidx.appcompat.widget.AppCompatTextView
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:textColor="#75859d"
+                              android:id="@+id/tv_duration"
+                              android:textSize="@dimen/_10ssp" />
+
+                      </LinearLayout>
+
+
+                      <ImageView
+                          android:layout_width="25dp"
+                          android:layout_height="25dp"
+                          android:layout_gravity="center_vertical"
+                          android:background="@drawable/arrow_forward"/>
+
+                      <!-- this screen for cancel training-->
+                      <!--end here-->
+
+                      <!--this below one for completed training showing -->
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="10dp">
+
+                      <TextView
+                      android:id="@+id/lastseentext"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="14dp"
+                      android:layout_gravity="left"
+                          android:layout_weight="1"
+                      />
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Not started yet"
+                          android:id="@+id/startedtext"
+                          android:textSize="14dp"
+                          android:layout_gravity="right"
+
+                          />
+
+                  </LinearLayout>
+
+
+
+              </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+        </LinearLayout>
+
+
+</layout>

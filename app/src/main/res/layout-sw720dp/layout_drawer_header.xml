@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.dashboard.DashBoardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_mtrainer_white" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center"
+                    android:background="#d6dce6" />
+
+                <!--<androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_8sdp"
+                    appImageDrawable = "@{vm.companyId}"/>-->
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:src="@drawable/company_logo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_66sdp"
+            android:background="@color/colorLightRed"
+            android:orientation="horizontal"
+            android:padding="@dimen/_4sdp">
+
+            <com.droidcommons.views.roundedimageview.RoundedImageView
+                android:id="@+id/ivUserPic"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:riv_border_color="@color/colorTextGrey"
+                app:riv_border_width="@dimen/_1sdp"
+                app:riv_oval="true"
+                app:srcCompat="@drawable/ic_profile_pic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivUserPic"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="@{`Version `+vm.appVersion}"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_5ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/ivUserPic"
+                android:layout_toRightOf="@+id/ivUserPic"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@{vm.getUserName()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7ssp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="@{vm.dutyStatusText}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_7ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        companyText="@{vm.companyId}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_6ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="@{vm::onDutyChanged}">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scDuty"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:checked="@{vm.isOnDuty}"
+                    android:clickable="false"
+                    android:theme="@style/Color1SwitchStyle"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    app:switchMinWidth="@dimen/_22sdp" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

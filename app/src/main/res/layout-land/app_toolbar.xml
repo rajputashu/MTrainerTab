@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_25sdp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/_10sdp"
+    android:paddingRight="@dimen/_10sdp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/toolBarBackButton"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:src="@drawable/ic_tab_back" />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="M Training"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/colorOrange"
+        android:textSize="@dimen/_8ssp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_mtrainer_white" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.dashboard.DashBoardViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/_18sdp"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:text="Select Site :"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:onClick="@{vm::onHeaderClick}"
+                    android:clickable="true"
+                    android:id="@+id/base_site_container">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/_18sdp"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="start"
+                        android:text="@{vm.baseUnitName}"
+                        android:textColor="@color/black"/>
+                    <RadioButton
+                        android:id="@+id/base_site_radio_btn"
+                        android:clickable="false"
+                        android:layout_weight="0"
+                        android:checked="@{vm.checkBase ? true : false}"
+                        android:layout_gravity="center_vertical"
+                        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                        android:buttonTint="@color/radio_button_selected_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:onClick="@{vm::onHeaderClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:id="@+id/other_site_container">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/_18sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="start"
+                        android:text="Other Site"
+                        android:textColor="@color/black"/>
+                    <RadioButton
+                        android:id="@+id/topic_radio_btn"
+                        android:clickable="false"
+                        android:layout_weight="0"
+                        android:layout_gravity="center_vertical"
+                        android:checked="@{vm.cantShowSpinner ? false : true}"
+                        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                        android:buttonTint="@color/radio_button_selected_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.jaiselrahman.hintspinner.HintSpinner
+                    android:id="@+id/sp_unit_name"
+                    setSpinnerItemSelector="@{vm.viewListeners}"
+                    unitEntries="@{vm.unitList}"
+                    android:visibility="@{vm.cantShowSpinner ? View.GONE : View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/tvSelectUnitTitle"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_14ssp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_site_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="@{vm.selectedSiteAddress.equals(``) ? `` : vm.selectedSiteAddress}"
+                    android:visibility="@{vm.selectedSiteAddress.equals(``) || vm.cantShowSpinner ? View.GONE : View.VISIBLE}"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_12ssp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:alpha="0.3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_emp_count_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Employee at Site :"
+                        android:textColor="@color/textColorBlackBold"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_emp_count"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tv_emp_count_header"
+                        android:textColor="@{vm.empCount == 0 ? @color/red : @color/textColorBlackBold}"
+                        android:text="@{vm.empCount == -1 ? `NA` : String.valueOf(vm.empCount)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_10ssp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.companyId.equals(`1`) || vm.companyId.equals(`4`) || vm.companyId.equals(`8`)  ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/training_counduct_type_container">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_training_counduct_type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorTextGrey"
+                        trainingConductType="@{1}"
+                        setSpinnerItemSelector="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_12ssp"/>
+                </RelativeLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:alpha="@{vm.addRotaLoading ? 0.3f : 1f}"
+                    android:clickable="@{vm.addRotaLoading ? false : true}"
+                    android:onClick="@{vm::onNextClick}"
+                    app:backgroundTint="@color/red"
+                    android:layout_gravity="bottom|end"
+                    app:tint="@color/colorWhite"
+                    android:src="@drawable/ic_arrow_white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{vm.addRotaLoading ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

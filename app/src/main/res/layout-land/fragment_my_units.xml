@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.myunits.MyUnitsViewModel" />
+        <import type="com.sisindia.ai.mtrainer.android.utils.TimeUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LightBlueGrey"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:background="@drawable/button_white_border"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="To"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/_8ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/add_rota_start_date"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginRight="@dimen/_1sdp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvStartDateForCreateTask"
+                        android:text="@{TimeUtils.TASK_DATE_FORMAT(vm.startDate)}"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_8ssp"
+                        app:setCreateTaskDatePicker1="@{vm.startDate}"
+                        app:viewListeners1="@{vm.viewListeners}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:background="@drawable/button_white_border"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:text="From"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/add_rota_end_date"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/white"
+                        android:layout_toEndOf="@id/tvEndDateForCreateTask"
+                        android:text="@{TimeUtils.TASK_DATE_FORMAT(vm.endDate)}"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/_8ssp"
+                        app:setCreateTaskDatePicker1="@{vm.endDate}"
+                        app:viewListeners1="@{vm.viewListeners}"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_white_border"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`) || vm.role.equals(`Trainer`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative1">
+
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sp_region_name"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:textColor="@color/white"
+                        regionEntries="@{vm.regionList}"
+                        setSpinnerItemSelectorMyUnits="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_8ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:background="@drawable/button_white_border"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_weight=".6"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative2">
+                    <com.jaiselrahman.hintspinner.HintSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+
+                        android:id="@+id/sp_branch_name"
+                        android:textColor="@color/white"
+                        branchEntriesUnits="@{vm.branchList}"
+                        setSpinnerItemSelectorMyUnits="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_8ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--   android:layout_centerVertical="true"-->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:background="@drawable/button_white_border"
+                    android:layout_weight="1.9"
+                    android:visibility="@{vm.role.equals(`Training Champ`) || vm.role.equals(`Unit Commander`)? View.GONE : View.VISIBLE}"
+                    android:id="@+id/relative3">
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        app:hintText="Select Site"
+                        android:id="@+id/sp_unit_name3"
+                        android:layout_centerVertical="true"
+                        siteEntries="@{vm.siteList}"
+                        setSpinnerItemSelectorMyUnits="@{vm.viewListeners}"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_8ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".1">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:background="@drawable/button_white_border"
+                        android:gravity="end"
+                        android:textColor="@color/white"
+                        android:onClick="@{vm::getMyUnits}"
+                        android:textSize="@dimen/_11ssp"
+                        android:text="Apply"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/colorLigherBlue"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="Site Name:"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_7ssp"
+                android:text="@{vm.siteName}"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="No of Training Done:"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="@{vm.NoTrainingDone}"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="No of Guard Trained:"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                android:text="@{vm.NoGuardTrained}"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/colorLigherBlue"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:weightSum="5"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp"
+                android:text="Acutal Start Date / Time"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp"
+                android:text="Acutal End Date / Time"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp"
+                android:text="Guard Trained"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp"
+                android:text="Assesment Done"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_7ssp"
+                android:text="No of Topics"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <!--  android:background="@color/lighter_grey"-->
+<!--
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_Calendar_Rota"
+                app:setMyUnitsRecyclerAdapter="@{vm.myUnitsAdapter}"
+                android:background="@color/white">
+            </androidx.recyclerview.widget.RecyclerView>
+-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_No_Rota"
+                android:textSize="@dimen/_8ssp"
+                android:text="Data not Found"
+                android:background="@color/white"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"/>
+            <!--            android:background="@color/lighter_grey"-->
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </LinearLayout>
+</layout>

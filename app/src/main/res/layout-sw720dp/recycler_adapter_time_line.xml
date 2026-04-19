@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+
+        <variable
+            name="adapterItem"
+            type="com.sisindia.ai.mtrainer.android.db.entities.TimeLineEntity" />
+
+        <variable
+            name="vm"
+            type="com.sisindia.ai.mtrainer.android.features.rota.DashBoardRotaViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/timeLineImg"
+                    android:src="@drawable/ic_completed"/>
+                <View
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/viewDashLine"
+                    android:background="@drawable/vertical_dashline" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_6sdp"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/duty"
+                    android:textSize="@dimen/_8ssp"
+                    android:textColor="@color/textColorBlackBold"
+                    android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/km"
+                    android:textSize="@dimen/_7ssp"
+                    android:textColor="@color/colorTextGrey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/time"
+                    android:textSize="@dimen/_7ssp"
+                    android:textColor="@color/colorTextGrey" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

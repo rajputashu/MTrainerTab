@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sisindia.ai.mtrainer.android.features.pretraining.TrainingItemDetailViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbTrainingItemDetail"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:layout_scrollFlags="snap"
+                app:title="Training Detail" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llTrainingItemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTrainingItemTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorTextGrey"
+                    android:textSize="@dimen/_15ssp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_14sdp"
+                    android:gravity="center"
+                    android:text="@string/manish_trainer_18_feb_2020" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nsvTrainingDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/llTrainingItemTitle"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/training_photos"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textColorBlackBold" />
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/vpTrainingItemDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/_14sdp"
+                            android:layout_marginLeft="@dimen/_4sdp"
+                            android:layout_height="@dimen/_200sdp"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            app:setTrainingDetailImageViewPager="@{viewModel.imageViewPagerAdapter}" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tlTrainingItemDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            app:tabGravity="center"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            app:tabIndicatorColor="@null"
+                            app:tabMaxWidth="@dimen/_15sdp"
+                            app:tabMode="scrollable"
+                            app:tabPaddingEnd="@dimen/_3sdp"
+                            app:tabPaddingStart="@dimen/_3sdp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:text="@string/topics_trained"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:setTopicsCoveredRecyclerAdapter1="@{viewModel.topicsRecyclerAdapter}" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@string/attendance_12"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:textColor="@color/textColorBlackBold"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_margin="@dimen/_16sdp"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorTextGrey"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Name" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/_12ssp"
+                                android:textColor="@color/colorTextGrey"
+                                android:layout_toLeftOf="@id/tvAssessmentTaken"
+                                android:text="Assessment taken :" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvAssessmentTaken"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:padding="@dimen/_4sdp"
+                                android:textColor="@color/textColorBlackBold"
+                                android:layout_centerVertical="true"
+                                android:text="@string/_0" />
+
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:setTextListRecyclerAdapter="@{viewModel.attendeesAdapter}" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
