@@ -22,9 +22,10 @@ import java.util.List;
 )
 public class LanguageEntity {
 
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+    /*@PrimaryKey(autoGenerate = true)
+    public int id;*/
 
+    @PrimaryKey
     @SerializedName("LanguageId")
     public int languageId;
 

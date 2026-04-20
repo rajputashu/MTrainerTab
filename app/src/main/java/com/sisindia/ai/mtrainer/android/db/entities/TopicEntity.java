@@ -59,6 +59,6 @@ public class TopicEntity {
     @SerializedName("ContentLanguageType")
     public String contentLanguageType;
 
-    // FK → CourseEntity.id
-//    public int courseFk;
+    public boolean isDownloaded = false; // Not from API, used to track download status
+
 }

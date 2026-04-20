@@ -17,6 +17,7 @@ public class TopicWithLastSeen {
     public String contentType;
     public int contentLanguageId;
     public String contentLanguageType;
+    public boolean isDownloaded;
 
     // from LEFT JOIN
     @ColumnInfo(name = "lastseen")

@@ -55,10 +55,13 @@ public interface StarTrainingMasterDao {
     /*@Query("select tt.* , ttc.lastseen from topic_table as tt left join training_topics_courses as ttc on tt.courseId=ttc.courseId where tt.courseId=:courseId and tt.contentLanguageId=:languageId")
     Single<List<TopicWithLastSeen>> fetchAllTopicsV2(int courseId, int languageId);*/
 
-    @Query("SELECT tt.id, tt.courseId, tt.courseTopicId, tt.courseTopicTitle, tt.topicSequence, tt.courseContentId, tt.fileViewName, tt.fileURL, tt.thumbnailURL, tt.contentTypeId, tt.contentType, tt.contentLanguageId, tt.contentLanguageType, ttc.lastseen FROM topic_table AS tt LEFT JOIN training_topics_courses AS ttc ON tt.courseId = ttc.courseId AND tt.courseContentId = ttc.courseContentId WHERE tt.courseId = :courseId AND tt.contentLanguageId = :languageId")
+    @Query("SELECT tt.id, tt.courseId, tt.courseTopicId, tt.courseTopicTitle, tt.topicSequence, tt.courseContentId, tt.fileViewName, tt.fileURL, tt.thumbnailURL, tt.contentTypeId, tt.contentType, tt.contentLanguageId, tt.contentLanguageType, tt.isDownloaded, ttc.lastseen FROM topic_table AS tt LEFT JOIN training_topics_courses AS ttc ON tt.courseId = ttc.courseId AND tt.courseContentId = ttc.courseContentId WHERE tt.courseId = :courseId AND tt.contentLanguageId = :languageId")
     Single<List<TopicWithLastSeen>> fetchAllTopicsV2(int courseId, int languageId);
 
     @Query("SELECT * from language_table")
     Single<List<LanguageEntity>> fetchAllLanguages();
+
+    @Query("Update topic_table set isDownloaded =1 where courseId=:courseId and courseTopicId=:courseTopicId and contentLanguageId=:languageId")
+    Single<Integer> updateDownloadStatus(int courseId, int courseTopicId, int languageId);
 }
 

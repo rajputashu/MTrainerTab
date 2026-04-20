@@ -21,7 +21,6 @@ import com.sisindia.ai.mtrainer.android.base.RequestHeaderInterceptor;
 import com.sisindia.ai.mtrainer.android.commons.remotelogs.MtrainerLogIntercepter;
 import com.sisindia.ai.mtrainer.android.constants.PrefsConstants;
 import com.sisindia.ai.mtrainer.android.db.MtrainerDataBase;
-import com.sisindia.ai.mtrainer.android.db.entities.TopicEntity;
 import com.sisindia.ai.mtrainer.android.models.PreAuthResponse;
 import com.sisindia.ai.mtrainer.android.models.TrainingCourseUpdateRequest;
 import com.sisindia.ai.mtrainer.android.models.TrainingTopicsDataModel;
@@ -56,6 +55,7 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
     public TrainingTopicsAdapterV2 adapter = new TrainingTopicsAdapterV2();
     private final List<TrainingTopicDataResponseMO> originalList = new ArrayList<>();
     private final List<TrainingTopicDataResponseMO> filteredListV2 = new ArrayList<>();
+    private int selectedCourseTopicId = -1;
 
     @Inject
     DashBoardApi dashboardapi;
@@ -219,7 +219,7 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
                             error -> Timber.e("Unable to fetch topics"))
             );
 
-        }, 3000);
+        }, 1500);
     }
 
     /*void sendtrackingdata(){
@@ -254,7 +254,7 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
         }
     }*/
 
-    private void onTrainingTopicsList(List<TopicEntity> topicEntities) {
+    /*private void onTrainingTopicsList(List<TopicEntity> topicEntities) {
         setIsLoading(false);
         if (topicEntities.isEmpty())
             return;
@@ -267,7 +267,7 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
         filteredListV2.addAll(topicList);
 
         adapter.clearAndSetItems(filteredListV2);
-    }
+    }*/
 
     private void onTrainingTopicsListV2(List<TopicWithLastSeen> topicListWithLastSeen) {
         setIsLoading(false);
@@ -294,7 +294,7 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
             String lowerCaseQuery = query.toLowerCase();
 
             for (TrainingTopicDataResponseMO item : originalList) {
-                if (item.getCourseTitle().toLowerCase().contains(lowerCaseQuery)) {
+                if (item.getFileViewName().toLowerCase().contains(lowerCaseQuery)) {
                     filteredListV2.add(item);
                 }
             }
@@ -304,8 +304,21 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
     }
 
     public TrainingTopicsViewListeners topicListener = item -> {
+        selectedCourseTopicId = item.getCourseTopicId();
         message.obj = item;
         message.what = VIDEO_PLAY;
         liveData.setValue(message);
     };
+
+    public void updateFileDownloadStatus() {
+        addDisposable(dataBase.getTrainingMasterDao()
+                .updateDownloadStatus(Prefs.getInt(PrefsConstants.SELECTED_COURSE_ID),
+                        selectedCourseTopicId,
+                        Prefs.getInt(PrefsConstants.SELECTED_LANGUAGE_ID))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((i) -> {
+                        },
+                        error -> Timber.e("Unable to fetch topics")));
+    }
 }

@@ -39,12 +39,13 @@
                     android:text="@{adapterItem.courseTitle}"
                     android:textColor="#000000"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#666666"
+                    android:visibility="gone"
                     android:text="@{`Duration: `+adapterItem.courseDuration}"
                     android:textSize="12sp" />
 

@@ -45,7 +45,7 @@ object TrainingTopicMapper {
             courseSequenceNo = 0,        // not in TopicEntity
             companyId = 0,        // not in TopicEntity
             courseDuration = 0.0,      // not in TopicEntity
-            isOffline = 0,        // not in TopicEntity
+            isOffline = if (entity.isDownloaded) 1 else 0,
             segmentType = "",       // not in TopicEntity
             courseTopicId = entity.courseTopicId,
             courseTopicTitle = entity.courseTopicTitle,
@@ -84,39 +84,39 @@ object TrainingTopicMapper {
     @JvmStatic
     fun fromTopicWithLastSeen(entity: TopicWithLastSeen): TrainingTopicDataResponseMO {
         return TrainingTopicDataResponseMO(
-            courseId                  = entity.courseId,
-            courseTitle               = "",        // not in topic_table
-            courseSequenceNo          = 0,         // not in topic_table
-            companyId                 = 0,         // not in topic_table
-            courseDuration            = 0.0,       // not in topic_table
-            isOffline                 = 0,         // not in topic_table
-            segmentType               = "",        // not in topic_table
-            courseTopicId             = entity.courseTopicId,
-            courseTopicTitle          = entity.courseTopicTitle,
-            topicDuration             = 0.0,       // not in topic_table
-            topicSequence             = entity.topicSequence,
-            courseTopicType           = "",        // not in topic_table
-            courseContentId           = entity.courseContentId,
-            fileDownloadName          = "",        // not in topic_table
-            fileViewName              = entity.fileViewName,
-            fileURL                   = entity.fileURL,
-            contentSize               = 0,         // not in topic_table
-            contentVersion            = 0,         // not in topic_table
-            courseContentDuration     = 0.0,       // not in topic_table
-            courseContentType         = entity.contentType,
+            courseId = entity.courseId,
+            courseTitle = "",        // not in topic_table
+            courseSequenceNo = 0,         // not in topic_table
+            companyId = 0,         // not in topic_table
+            courseDuration = 0.0,       // not in topic_table
+            isOffline = if (entity.isDownloaded) 1 else 0,
+            segmentType = "",        // not in topic_table
+            courseTopicId = entity.courseTopicId,
+            courseTopicTitle = entity.courseTopicTitle,
+            topicDuration = 0.0,       // not in topic_table
+            topicSequence = entity.topicSequence,
+            courseTopicType = "",        // not in topic_table
+            courseContentId = entity.courseContentId,
+            fileDownloadName = "",        // not in topic_table
+            fileViewName = entity.fileViewName,
+            fileURL = entity.fileURL,
+            contentSize = 0,         // not in topic_table
+            contentVersion = 0,         // not in topic_table
+            courseContentDuration = 0.0,       // not in topic_table
+            courseContentType = entity.contentType,
             courseContentThumbnailURL = entity.thumbnailURL,
-            languageType              = entity.contentLanguageType,
-            lastSeen                  = entity.lastseen,   // ← from JOIN
-            isActive                  = 0,         // not in topic_table
-            assessmentId              = 0,         // not in topic_table
-            assessmentName            = "",        // not in topic_table
-            lastAccessDateTime        = "",        // not in topic_table
-            totalQuestionCount        = 0,         // not in topic_table
-            attemptQuestionCount      = 0,         // not in topic_table
-            totalScore                = 0,         // not in topic_table
-            score                     = null,
-            isReAttempt               = 0,         // not in topic_table
-            totalViews                = 0          // not in topic_table
+            languageType = entity.contentLanguageType,
+            lastSeen = entity.lastseen,   // ← from JOIN
+            isActive = 0,         // not in topic_table
+            assessmentId = 0,         // not in topic_table
+            assessmentName = "",        // not in topic_table
+            lastAccessDateTime = "",        // not in topic_table
+            totalQuestionCount = 0,         // not in topic_table
+            attemptQuestionCount = 0,         // not in topic_table
+            totalScore = 0,         // not in topic_table
+            score = null,
+            isReAttempt = 0,         // not in topic_table
+            totalViews = 0          // not in topic_table
         )
     }
 
