@@ -234,7 +234,7 @@ public class VideoScorm extends CordovaActivity {
                                 trainingLastseen.getSession())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::onTrainingupdatelist, this::onApiError1));
+                        .subscribe(this::onTrainingupdatelist, this::onGettingError));
             } else {
                 trainingLastseen = trainingTopicsModel;
                 trainingLastseen.setSyncStatus(0);
@@ -245,7 +245,7 @@ public class VideoScorm extends CordovaActivity {
                         .insertCoursesList(trainingLastseen)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::onTrainingupdatelist, this::onApiError1));
+                        .subscribe(this::onTrainingupdatelist, this::onGettingError));
             }
         }
         super.onBackPressed();
@@ -266,7 +266,7 @@ public class VideoScorm extends CordovaActivity {
                             LocalDateTime.now().toString()
                     )).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::onTrainingTopicsList, Timber::e));
+                    .subscribe(this::onTrainingTopicsList, this::onGettingError));
         }
     }
 
@@ -278,20 +278,15 @@ public class VideoScorm extends CordovaActivity {
                         trainingLastseen.getSession())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::ontopicslist2, this::onApiError));
+                .subscribe(this::onTrainingStatusUpdate, this::onGettingError));
     }
 
-    private void ontopicslist2() {
+    private void onTrainingStatusUpdate() {
         final Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                sendResultIntent();
-            }
-        }, 1000);
+        handler.postDelayed(this::sendResultIntent, 1000);
     }
 
-    private void onApiError1(Throwable throwable) {
+    private void onGettingError(Throwable throwable) {
         sendResultIntent();
     }
 
@@ -366,7 +361,7 @@ public class VideoScorm extends CordovaActivity {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(
                                         this::onTrainingupdatelist,
-                                        this::onApiError1
+                                        this::onGettingError
                                 )
                 );
             }
@@ -387,7 +382,7 @@ public class VideoScorm extends CordovaActivity {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(
                                         this::onTrainingupdatelist,
-                                        this::onApiError1
+                                        this::onGettingError
                                 )
                 );
             }

@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -246,6 +245,7 @@ public class TrainingTopicsActivityV2 extends MTrainerBaseActivity {
                 if (dialog.isShowing()) dialog.dismiss();
                 // Reset guard so user can tap a different card after cancelling
                 trainingTopicsDataModel = null;
+                currentTask = null;
             });
         }
 
@@ -334,17 +334,19 @@ public class TrainingTopicsActivityV2 extends MTrainerBaseActivity {
             if (isCancelled()) return;
 
             if (result == null || result.isEmpty()) {
-                // Download failed — show feedback and reset guard so user can retry
-                Timber.e("Download failed — result is null");
                 Toast.makeText(TrainingTopicsActivityV2.this,
-                        "Download failed. Please try again.", Toast.LENGTH_SHORT).show();
-                trainingTopicsDataModel = null; // allow retry tap
+                        "No internet connection. Please connect to a better internet connectivity",
+                        Toast.LENGTH_LONG).show();
+                trainingTopicsDataModel = null;
+                currentTask = null;
+                finish();
                 return;
             }
 
             // Unzip then open SCORM.
             // openScorm() calls finish() so V2 is removed from back stack here too.
             try {
+                viewModel.updateFileDownloadStatus();
                 File zipFile = new File(result);
                 File targetDir = new File(result.replace(".zip", ""));
                 unzip(zipFile, targetDir);
@@ -409,6 +411,8 @@ public class TrainingTopicsActivityV2 extends MTrainerBaseActivity {
         } catch (Exception e) {
             Timber.e(e, "Error cancelling task in onBackPressed");
         }
+        // Resetting guard so no stale state blocks the exit
+        trainingTopicsDataModel = null;
         super.onBackPressed();
     }
 

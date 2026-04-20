@@ -138,6 +138,7 @@
     <string name="string_question_score_value">%1d/%2d</string>
     <string name="string_score_obtained_value">%1d/%2d</string>
     <string name="loading_config_msg">Please wait while we load your configuration data&#8230;</string>
+    <string name="string_downloaded">Downloaded</string>
 
     <string-array name="trainingType">
 

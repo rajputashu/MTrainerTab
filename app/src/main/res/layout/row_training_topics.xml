@@ -8,6 +8,7 @@
             type="com.sisindia.ai.mtrainer.android.models.online.TrainingTopicDataResponseMO" />
 
         <import type="com.sisindia.ai.mtrainer.android.utils.TimeUtils"/>
+        <import type="android.view.View"/>
     </data>
 
     <androidx.cardview.widget.CardView
@@ -62,13 +63,23 @@
                     android:text="@{`Last Seen: `+ TimeUtils.formatServerDate(adapterItem.lastSeen)}"
                     android:textSize="12sp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <!--<androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@{adapterItem.lastSeen==null ? @color/pendingTextYellow:@color/green}"
                     app:layout_constraintTop_toBottomOf="@id/topicTitleValue"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:text="@{adapterItem.lastSeen==null ? `Not Started`:`Started`}"
+                    android:textSize="12sp" />-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green"
+                    app:layout_constraintTop_toBottomOf="@id/topicTitleValue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{adapterItem.isOffline==1 ? View.VISIBLE : View.GONE}"
+                    android:text="@string/string_downloaded"
                     android:textSize="12sp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
