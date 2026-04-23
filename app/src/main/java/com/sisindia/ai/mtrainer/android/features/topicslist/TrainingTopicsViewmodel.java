@@ -271,8 +271,37 @@ public class TrainingTopicsViewmodel extends MTrainerViewModel {
 
     private void onTrainingTopicsListV2(List<TopicWithLastSeen> topicListWithLastSeen) {
         setIsLoading(false);
-        if (topicListWithLastSeen.isEmpty())
+        if (topicListWithLastSeen.isEmpty()){
+            fetchDefaultTopicsWithHindiLanguage();
             return;
+        }
+        List<TrainingTopicDataResponseMO> topics =
+                TrainingTopicMapper.fromTopicWithLastSeenList(topicListWithLastSeen);
+        originalList.clear();
+        originalList.addAll(topics);
+
+        filteredListV2.clear();
+        filteredListV2.addAll(topics);
+
+        adapter.clearAndSetItems(filteredListV2);
+    }
+
+
+    private void fetchDefaultTopicsWithHindiLanguage() {
+        addDisposable(dataBase.getTrainingMasterDao()
+                .fetchAllTopicsV2(Prefs.getInt(PrefsConstants.SELECTED_COURSE_ID), 2)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::onFetchingTopicsForHindi,
+                        error -> Timber.e("Unable to fetch HINDI topics also"))
+        );
+    }
+
+    private void onFetchingTopicsForHindi(List<TopicWithLastSeen> topicListWithLastSeen) {
+        setIsLoading(false);
+        if (topicListWithLastSeen.isEmpty()){
+            return;
+        }
         List<TrainingTopicDataResponseMO> topics =
                 TrainingTopicMapper.fromTopicWithLastSeenList(topicListWithLastSeen);
         originalList.clear();

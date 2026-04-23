@@ -55,7 +55,9 @@ import com.sisindia.ai.mtrainer.android.rest.RestConstants;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -490,31 +492,6 @@ public class UserViewModel extends MTrainerViewModel {
                 .subscribe(this::onFetchingTrainingMasterData, this::onApiError));
     }
 
-    /*private void onFetchingTrainingMasterData(StarTrainingMasterResponseMO response) {
-        if (response.statusCode == SUCCESS_RESPONSE) {
-
-            if (!response.getData().isEmpty()) {
-
-                StarTrainingMasterDao dao = dataBase.getTrainingMasterDao();
-
-                addDisposable(dao.insertAllProgramList(response.getData())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe());
-
-                for (ProgramEntity program : response.getData()) {
-                    if (!program.languagesList.isEmpty()) {
-                        addDisposable(dao.insertAllLanguageList(program.languagesList)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe());
-                    }
-                }
-
-            }
-        }
-    }*/
-
     private void onFetchingTrainingMasterData(StarTrainingMasterResponseMO response) {
         if (response.statusCode != SUCCESS_RESPONSE) return;
 
@@ -524,9 +501,9 @@ public class UserViewModel extends MTrainerViewModel {
         // Flat lists to collect all entities
         List<LanguageEntity> allLanguages = new ArrayList<>();
         List<CourseEntity> allCourses = new ArrayList<>();
-        List<TopicEntity> allTopics = new ArrayList<>();
+//        List<TopicEntity> allTopics = new ArrayList<>();
 
-        for (ProgramEntity program : programs) {
+        /*for (ProgramEntity program : programs) {
             if (program.languagesList == null) continue;
 
             for (LanguageEntity language : program.languagesList) {
@@ -541,7 +518,35 @@ public class UserViewModel extends MTrainerViewModel {
                     allTopics.addAll(course.topicsList);
                 }
             }
+        }*/
+
+        // Replace List with Map keyed by unique combination
+        Map<String, TopicEntity> topicsMap = new LinkedHashMap<>();
+
+        for (ProgramEntity program : programs) {
+            if (program.languagesList == null) continue;
+
+            for (LanguageEntity language : program.languagesList) {
+                allLanguages.add(language);
+                if (language.coursesList == null) continue;
+
+                for (CourseEntity course : language.coursesList) {
+                    course.languageId = language.languageId;
+                    allCourses.add(course);
+                    if (course.topicsList == null) continue;
+
+                    for (TopicEntity topic : course.topicsList) {
+                        // Unique key = courseId + courseContentId + languageId
+                        String key = topic.courseId + "_"
+                                + topic.courseContentId + "_"
+                                + topic.contentLanguageId;
+                        topicsMap.put(key, topic); // duplicate key = overwrites, no duplicate
+                    }
+                }
+            }
         }
+
+        List<TopicEntity> allTopics = new ArrayList<>(topicsMap.values());
 
         StarTrainingMasterDao dao = dataBase.getTrainingMasterDao();
 
