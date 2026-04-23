@@ -1,22 +1,25 @@
 package com.sisindia.ai.mtrainer.android.db.entities;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+/*@Parcel
+@Entity(tableName = "topic_table")*/
+
 @Parcel
 @Entity(
-        tableName = "topic_table"
-        /*foreignKeys = @ForeignKey(
-                entity = CourseEntity.class,
-                parentColumns = "id",
-                childColumns = "courseFk",
-                onDelete = ForeignKey.CASCADE
-        ),
-        indices = {@Index("courseFk")}*/
+        tableName = "topic_table",
+        indices = {
+                @Index(
+                        value = {"courseId", "courseContentId", "contentLanguageId"},
+                        unique = true
+                )
+        }
 )
 public class TopicEntity {
 

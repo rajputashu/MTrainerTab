@@ -16,8 +16,8 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 ext {
-    appVersionCode = 60
-    appVersionName = "2.5.0"
+    appVersionCode = 62
+    appVersionName = "2.5.2"
 }
 android.buildFeatures.buildConfig true
 android {
